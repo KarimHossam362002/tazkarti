@@ -20,10 +20,10 @@
 
     <nav>
     <div class="menu-bar">
-      <a href="index.html"><img src="{{ asset('assets/images/tazkarti.svg') }}" alt></a>
+      <a href="{{ route('home.index') }}"><img src="{{ asset('assets/images/tazkarti.svg') }}" alt></a>
       <ul>
-        <li><a href="register.html">Register</a></li>
-        <li><a href="login.html">Sign in</a></li>
+        <li><a href="{{ route('register.index') }}">Register</a></li>
+        <li><a href="{{ route('login.index') }}">Sign in</a></li>
         <li><a href="#">Languages <i class="fas fa-caret-down"></i></a>
 
           <div class="dropdown-menu">
@@ -35,9 +35,9 @@
             </ul>
           </div>
         </li>
-        <li><a href="about.html">About us</a>
+        <li><a href="{{ route('about.index') }}">About us</a>
         </li>
-        <li><a href="contact.html">Contact us</a></li>
+        <li><a href="{{ route('contact.index') }}">Contact us</a></li>
       </ul>
     </div>
   </nav>
@@ -56,18 +56,18 @@
           <div class="wave" id="wave4"></div>
         </div>
         <ul class="social_icon">
-          <li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
+          <li><a href="https://www.facebook.com/Karim362002/"><i class="fab fa-facebook-f"></i></a></li>
           <li><a href="#"><i class="fab fa-twitter"></i></a></li>
-          <li><a href="#"><i class="fab fa-linkedin-in"></i></a></li>
-          <li><a href="#"><i class="fab fa-github"></i></a></li>
+          <li><a href="https://www.linkedin.com/in/karim-hossam-b43967202/"><i class="fab fa-linkedin-in"></i></a></li>
+          <li><a href="https://github.com/KarimHossam362002"><i class="fab fa-github"></i></a></li>
         </ul>
         <ul class="menu">
-          <li><a href="index.html">Home</a></li>
-          <li><a href="stadium.html">Stadium Locations</a></li>
-          <li><a href="store.html">Our Stores</a></li>
-          <li><a href="faq.html">FAQ</a></li>
-          <li><a href="about.html">About Tazkarti</a></li>
-          <li><a href="contact.html">Contact US</a></li>
+          <li><a href="{{ route('home.index') }}">Home</a></li>
+          <li><a href="{{ route('stadium.index') }}">Stadium Locations</a></li>
+          <li><a href="{{ route('store.index') }}">Our Stores</a></li>
+          <li><a href="{{ route('faq.index') }}">FAQ</a></li>
+          <li><a href="{{ route('about.index') }}">About Tazkarti</a></li>
+          <li><a href="{{ route('contact.index') }}">Contact US</a></li>
         </ul>
         <p>&copy;2023 Tazkarti Karim | All Rights Reserved</p>
       </footer>

@@ -19,7 +19,7 @@
                 <td>Cairo</td>
                 <td><a href="#"><img
                             style="height: 40px; width: auto;"
-                            src="assets/images/map-icon.png" alt></a></td>
+                            src="{{asset('assets/images/map-icon.png')}}" alt></a></td>
 
             </tr>
             <tr>
@@ -27,7 +27,7 @@
                 <td>Cairo</td>
                 <td><a href="#"><img
                             style="height: 40px; width: auto;"
-                            src="assets/images/map-icon.png" alt></a></td>
+                            src="{{asset('assets/images/map-icon.png')}}" alt></a></td>
 
             </tr>
             <tr>
@@ -35,7 +35,7 @@
                 <td>Cairo</td>
                 <td><a href="#"><img
                             style="height: 40px; width: auto;"
-                            src="assets/images/map-icon.png" alt></a></td>
+                            src="{{asset('assets/images/map-icon.png')}}" alt></a></td>
 
             </tr>
             <tr>
@@ -43,7 +43,7 @@
                 <td>Cairo</td>
                 <td><a href="#"><img
                             style="height: 40px; width: auto;"
-                            src="assets/images/map-icon.png" alt></a></td>
+                            src="{{asset('assets/images/map-icon.png')}}" alt></a></td>
 
             </tr>
 

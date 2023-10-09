@@ -11,7 +11,7 @@
 
             <div class="event_content">
                 <img class="event_image"
-                    src="assets/images/event.jpeg" alt>
+                    src="{{asset('assets/images/event.jpeg')}}" alt>
                 <div><span style="font-size: 12px;">others</span>
                     <a class="event_name" href="#">NEWGIZA
                         Premier Padel P1</a>
@@ -23,7 +23,7 @@
                         <a style="text-decoration: none;"
                             href="https://www.google.com/maps/place/30%C2%B000'24.3%22N+31%C2%B003'59.9%22E/@30.0067454,31.0666473,17z/data=!3m1!4b1!4m4!3m3!8m2!3d30.0067454!4d31.0666473?entry=ttu">
                             <img class="google_icon_image"
-                                src="assets/images/googlemap.png"
+                                src="{{asset('assets/images/googlemap.png')}}"
                                 alt>
                             <span
                                 class="event_name_location">NEWGIZA
@@ -50,7 +50,7 @@
                         staged</p>
                 </div>
                 <div class="seperate">|</div>
-                <a class="event_details" href>Details</a>
+                <a class="event_details" href="{{ route('event.event') }}">Details</a>
             </div>
         </div>
         <!-- event container -->
@@ -61,20 +61,20 @@
             <div class="match-container">
                 <div class="item1">
                     <span>Pyramids Fc</span>
-                    <img src="assets/images/team.png" alt>
+                    <img src="{{asset('assets/images/team.png')}}" alt>
                     <span>vs</span>
 
-                    <img src="assets/images/team.png" alt>
+                    <img src="{{asset('assets/images/team.png')}}" alt>
                     <span>Pyramids Fc</span>
 
                 </div>
                 <div class="item2">
-                    <img src="assets/images/stadium (1).svg"
+                    <img src="{{asset('assets/images/stadium (1).svg')}}"
                         alt>
                     <span> 30 June Stadium Cairo</span>
                 </div>
                 <div class="item3">
-                    <img src="assets/images/calendar.svg"
+                    <img src="{{asset('assets/images/calendar.svg')}}"
                         alt>
                     <p>Sun 08 Oct 2023 |
                         <span>Time : 07 : 00 PM</span></p></div>
@@ -89,20 +89,20 @@
             <div class="match-container">
                 <div class="item1">
                     <span>Pyramids Fc</span>
-                    <img src="assets/images/team.png" alt>
+                    <img src="{{asset('assets/images/team.png')}}" alt>
                     <span>vs</span>
 
-                    <img src="assets/images/team.png" alt>
+                    <img src="{{asset('assets/images/team.png')}}" alt>
                     <span>Pyramids Fc</span>
 
                 </div>
                 <div class="item2">
-                    <img src="assets/images/stadium (1).svg"
+                    <img src="{{asset('assets/images/stadium (1).svg')}}"
                         alt>
                     <span> 30 June Stadium Cairo</span>
                 </div>
                 <div class="item3">
-                    <img src="assets/images/calendar.svg"
+                    <img src="{{asset('assets/images/calendar.svg')}}"
                         alt>
                     <p>Sun 08 Oct 2023 |
                         <span>Time : 07 : 00 PM</span></p></div>
@@ -117,20 +117,20 @@
             <div class="match-container">
                 <div class="item1">
                     <span>Pyramids Fc</span>
-                    <img src="assets/images/team.png" alt>
+                    <img src="{{asset('assets/images/team.png')}}" alt>
                     <span>vs</span>
 
-                    <img src="assets/images/team.png" alt>
+                    <img src="{{asset('assets/images/team.png')}}" alt>
                     <span>Pyramids Fc</span>
 
                 </div>
                 <div class="item2">
-                    <img src="assets/images/stadium (1).svg"
+                    <img src="{{asset('assets/images/stadium (1).svg')}}"
                         alt>
                     <span> 30 June Stadium Cairo</span>
                 </div>
                 <div class="item3">
-                    <img src="assets/images/calendar.svg"
+                    <img src="{{asset('assets/images/calendar.svg')}}"
                         alt>
                     <p>Sun 08 Oct 2023 |
                         <span>Time : 07 : 00 PM</span></p></div>

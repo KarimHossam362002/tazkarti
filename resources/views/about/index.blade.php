@@ -1,4 +1,4 @@
-@extends("main")
+@extends("second")
 @section("title,'Tazkarti | About")
 @section('content')
  <!-- main body -->

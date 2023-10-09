@@ -15,7 +15,7 @@
           <div class="col">
 
             <div class="card-body">
-              <form action="matches.html">
+              <form action="{{ route('match.index') }}">
                 <div class="mb-5 d-flex justify-content-around">
 
                   <button type="submit" class="btn btn-primary bg-color-1">
@@ -31,10 +31,10 @@
 
           <div class="col">
             <div class="card-body">
-              <form action="events/index.html">
+              <form action="{{ route('event.index') }}">
                 <div class="mb-5 d-flex justify-content-around">
                   <button type="submit" class="btn btn-primary bg-color-2">
-                    <img src="{{ asset('assets/images/stadium.svg') }}" alt>
+                    <img src="{{ asset('assets/images/otherEvents.svg') }}" alt>
                     <h2>Entertainment</h2>
                     <p>Event Tickets</p>
                   </button>
