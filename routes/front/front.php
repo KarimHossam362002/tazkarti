@@ -13,7 +13,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 // Home
-Route::get('/home',function(){
+Route::get('/',function(){
 return view('home.index');
 })->name('home.index');
 
@@ -24,7 +24,7 @@ return view('about.index');
 //contact
 Route::get('/contact',function(){
 return view('contact.index');
-})->name('contact.index');
+})->name('contact.home');
 //event index
 Route::get('/event',function(){
 return view('events.index');
