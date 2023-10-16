@@ -14,7 +14,7 @@ Require __DIR__. "./admin/admin.php";
 |
 */
 
-Route::get('/', function () {
+Route::get('/welcome', function () {
     return view('welcome');
 });
 

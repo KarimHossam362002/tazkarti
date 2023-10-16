@@ -1,5 +1,9 @@
 <?php
 
+use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\ContactUsController;
+use App\Http\Controllers\FaqController;
+use App\Http\Controllers\StadiumController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -15,4 +19,14 @@ use Illuminate\Support\Facades\Route;
 Route::get('/dashboard', function (){
     return view ('admin.layout');
 })->name('dashboard.index');
+// category
+Route::resource('admin/category',CategoryController::class)->except('show');
+// faq
+Route::resource('admin/faq',FaqController::class)->except('show');
+// contact
+Route::get('admin/contact',[ContactUsController::class , 'index'])->name('contact.index');
+Route::post('admin/contact',[ContactUsController::class , 'store'])->name('contact.store');
+Route::delete('admin/contact/{id}',[ContactUsController::class , 'destroy'])->name('contact.destroy');
+// stadium
+Route::resource('admin/stadium' , StadiumController::class)->except('show');
 

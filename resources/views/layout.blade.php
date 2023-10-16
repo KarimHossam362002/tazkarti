@@ -67,7 +67,7 @@
           <li><a href="{{ route('store.index') }}">Our Stores</a></li>
           <li><a href="{{ route('faq.index') }}">FAQ</a></li>
           <li><a href="{{ route('about.index') }}">About Tazkarti</a></li>
-          <li><a href="{{ route('contact.index') }}">Contact US</a></li>
+          <li><a href="{{ route('contact.home') }}">Contact US</a></li>
         </ul>
         <p>&copy;2023 Tazkarti Karim | All Rights Reserved</p>
       </footer>
