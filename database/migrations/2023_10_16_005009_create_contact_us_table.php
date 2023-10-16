@@ -13,6 +13,7 @@ return new class extends Migration
     {
         Schema::create('contact_us', function (Blueprint $table) {
             $table->id();
+            // here add tazkarti_id of user
             $table->string('subject');
             $table->string('name');
             $table->string('email');
