@@ -16,7 +16,19 @@
             </tr>
         </thead>
         <tbody>
+            @foreach ($stores as $store )
             <tr>
+                <th scope="row">{{ $store->dedicated_to == 1 ? 'Entertainment' : 'Match' }}</th>
+                <td>{{ $store->outlet_name }}</td>
+                <td>{{ $store->city }}</td>
+                <td>{{ $store->district }}</td>
+                <td>{{ $store->address }}</td>
+
+
+            </tr>
+            @endforeach
+           
+            {{-- <tr>
                 <th scope="row">Entertainment</th>
                 <td>Fawry Plus</td>
                 <td>Cairo</td>
@@ -51,16 +63,7 @@
                 <td>store 2, ground floor,building 54 othman ibn affan</td>
 
 
-            </tr>
-            <tr>
-                <th scope="row">Entertainment</th>
-                <td>Fawry Plus</td>
-                <td>Cairo</td>
-                <td>Heliopolis</td>
-                <td>store 2, ground floor,building 54 othman ibn affan</td>
-
-
-            </tr>
+            </tr> --}}
 
 
 

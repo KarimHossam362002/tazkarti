@@ -1,5 +1,9 @@
 <?php
 
+use App\Http\Controllers\Front\FaqController;
+use App\Http\Controllers\Front\HomeController;
+use App\Http\Controllers\Front\StadiumController;
+use App\Http\Controllers\Front\StoreController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -13,14 +17,14 @@ use Illuminate\Support\Facades\Route;
 |
 */
 // Home
-Route::get('/',function(){
-return view('home.index');
-})->name('home.index');
+Route::get('/' , function(){
+    return view('home.index');
+})->name('home.home');
 
 //about
 Route::get('/about',function(){
 return view('about.index');
-})->name('about.index');
+})->name('about.home');
 //contact
 Route::get('/contact',function(){
 return view('contact.index');
@@ -28,27 +32,25 @@ return view('contact.index');
 //event index
 Route::get('/event',function(){
 return view('events.index');
-})->name('event.index');
+})->name('event.home');
 //event
 Route::get('/event/details',function(){
 return view('events.event');
 })->name('event.event');
 //faq
-Route::get('/faq',function(){
-return view('faq.index');
-})->name('faq.index');
+Route::get('/faq' , [FaqController::class, 'index'])->name('faq.home');
 //login
 Route::get('/login',function(){
 return view('login.index');
-})->name('login.index');
+})->name('login.home');
 //matches
 Route::get('/matches',function(){
 return view('matches.index');
-})->name('match.index');
+})->name('match.home');
 //profile
 Route::get('/profile',function(){
 return view('profile.index');
-})->name('profile.index');
+})->name('profile.home');
 //update profile
 Route::get('/updateprofile',function(){
 return view('profile.info');
@@ -56,17 +58,13 @@ return view('profile.info');
 //register
 Route::get('/register',function(){
 return view('register.index');
-})->name('register.index');
+})->name('register.home');
 //stadium
-Route::get('/stadium',function(){
-return view('stadium.index');
-})->name('stadium.index');
+Route::get('/stadium',[StadiumController::class,'index'])->name('stadium.home');
 //store
-Route::get('/store',function(){
-return view('store.index');
-})->name('store.index');
+Route::get('/store' , [StoreController::class,'index'])->name('store.home');
 //userTicket
 Route::get('/userticket',function(){
 return view('userTicket.index');
-})->name('userTicket.index');
+})->name('userTicket.home');
 

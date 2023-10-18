@@ -14,7 +14,7 @@ return [
     |
     */
 
-    'title' => 'AdminLTE 3',
+    'title' => 'Tazkarti Dashboard',
     'title_prefix' => '',
     'title_postfix' => '',
 
@@ -63,8 +63,8 @@ return [
     |
     */
 
-    'logo' => '<b>Admin</b>LTE',
-    'logo_img' => 'vendor/adminlte/dist/img/AdminLTELogo.png',
+    'logo' => '<b>Tazkarti</b>',
+    'logo_img' => 'vendor/adminlte/dist/img/TazkartiLogo.png',
     'logo_img_class' => 'brand-image img-circle elevation-3',
     'logo_img_xl' => null,
     'logo_img_xl_class' => 'brand-image-xs',
@@ -329,11 +329,11 @@ return [
             'icon' => 'fas fa-home',
         ],
         ['header' => 'account_settings'],
-        [
-            'text' => 'Category',
-            'url'  => 'admin/category',
-            'icon' => 'fas fa-fw fa-user',
-        ],
+        // [
+        //     'text' => 'Category',
+        //     'url'  => 'admin/category',
+        //     'icon' => 'fas fa-fw fa-user',
+        // ],
         [
             'text' => 'Stadiums',
             'url'  => 'admin/stadium',
@@ -348,6 +348,21 @@ return [
             'text' => 'Faq',
             'url'  => 'admin/faq',
             'icon' => 'fas fa-question fa-spin',
+        ],
+        [
+            'text' => 'Users',
+            'url'  => 'admin/users',
+            'icon' => 'fas fa-users',
+        ],
+        [
+            'text' => 'Entertainments',
+            'url'  => 'admin/entertainment',
+            'icon' => 'far fa-calendar',
+        ],
+        [
+            'text' => 'Stores',
+            'url'  => 'admin/store',
+            'icon' => 'fas fa-store',
         ],
         // [
             //     'text' => 'change_password',

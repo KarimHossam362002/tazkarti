@@ -2,8 +2,11 @@
 
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\ContactUsController;
+use App\Http\Controllers\EntertainmentController;
 use App\Http\Controllers\FaqController;
 use App\Http\Controllers\StadiumController;
+use App\Http\Controllers\StoreController;
+use App\Models\Entertainment;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -29,4 +32,8 @@ Route::post('admin/contact',[ContactUsController::class , 'store'])->name('conta
 Route::delete('admin/contact/{id}',[ContactUsController::class , 'destroy'])->name('contact.destroy');
 // stadium
 Route::resource('admin/stadium' , StadiumController::class)->except('show');
+// entertainments
+Route::resource('admin/entertainment' , EntertainmentController::class)->except('show');
+// stores
+Route::resource('admin/store' , StoreController::class)->except('show');
 
