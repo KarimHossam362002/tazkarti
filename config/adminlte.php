@@ -109,11 +109,11 @@ return [
     'preloader' => [
         'enabled' => true,
         'img' => [
-            'path' => 'vendor/adminlte/dist/img/AdminLTELogo.png',
-            'alt' => 'AdminLTE Preloader Image',
+            'path' => 'vendor/adminlte/dist/img/TazkartiLogo.png',
+            'alt' => 'Tazkarti Preloader Image',
             'effect' => 'animation__shake',
-            'width' => 60,
-            'height' => 60,
+            'width' => 100,
+            'height' => 100,
         ],
     ],
 
@@ -337,7 +337,7 @@ return [
         [
             'text' => 'Stadiums',
             'url'  => 'admin/stadium',
-            'icon' => 'fas fa-futbol fa-spin',
+            'icon' => 'fas fa-hockey-puck',
         ],
         [
             'text' => 'Contact Us',
@@ -363,6 +363,21 @@ return [
             'text' => 'Stores',
             'url'  => 'admin/store',
             'icon' => 'fas fa-store',
+        ],
+        [
+            'text' => 'Matches',
+            'url'  => 'admin/match',
+            'icon' => 'fas fa-futbol fa-spin',
+        ],
+        [
+            'text' => 'Tournments',
+            'url'  => 'admin/tournment',
+            'icon' => 'fas fa-flag', 
+        ],
+        [
+            'text' => 'Teams',
+            'url'  => 'admin/team',
+            'icon' => 'fas fa-stamp', 
         ],
         // [
             //     'text' => 'change_password',

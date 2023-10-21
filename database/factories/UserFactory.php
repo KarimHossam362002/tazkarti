@@ -17,11 +17,13 @@ class UserFactory extends Factory
      */
     public function definition(): array
     {
+        $roles = ['admin ', 'user'];
         return [
             'name' => fake()->name(),
             'image' => fake()->imageUrl(),
             'password' => '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', // password
             'email' => fake()->unique()->safeEmail(),
+            'type' => fake()->randomElement($roles) ,
             'email_verified_at' => now(),
             'remember_token' => Str::random(10),
         ];
