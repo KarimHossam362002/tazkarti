@@ -14,7 +14,7 @@ return [
     |
     */
 
-    'title' => 'AdminLTE 3',
+    'title' => 'Tazkarti Dashboard',
     'title_prefix' => '',
     'title_postfix' => '',
 
@@ -63,8 +63,8 @@ return [
     |
     */
 
-    'logo' => '<b>Admin</b>LTE',
-    'logo_img' => 'vendor/adminlte/dist/img/AdminLTELogo.png',
+    'logo' => '<b>Tazkarti</b>',
+    'logo_img' => 'vendor/adminlte/dist/img/TazkartiLogo.png',
     'logo_img_class' => 'brand-image img-circle elevation-3',
     'logo_img_xl' => null,
     'logo_img_xl_class' => 'brand-image-xs',
@@ -109,11 +109,11 @@ return [
     'preloader' => [
         'enabled' => true,
         'img' => [
-            'path' => 'vendor/adminlte/dist/img/AdminLTELogo.png',
-            'alt' => 'AdminLTE Preloader Image',
+            'path' => 'vendor/adminlte/dist/img/TazkartiLogo.png',
+            'alt' => 'Tazkarti Preloader Image',
             'effect' => 'animation__shake',
-            'width' => 60,
-            'height' => 60,
+            'width' => 100,
+            'height' => 100,
         ],
     ],
 
@@ -329,15 +329,15 @@ return [
             'icon' => 'fas fa-home',
         ],
         ['header' => 'account_settings'],
-        [
-            'text' => 'Category',
-            'url'  => 'admin/category',
-            'icon' => 'fas fa-fw fa-user',
-        ],
+        // [
+        //     'text' => 'Category',
+        //     'url'  => 'admin/category',
+        //     'icon' => 'fas fa-fw fa-user',
+        // ],
         [
             'text' => 'Stadiums',
             'url'  => 'admin/stadium',
-            'icon' => 'fas fa-futbol fa-spin',
+            'icon' => 'fas fa-hockey-puck',
         ],
         [
             'text' => 'Contact Us',
@@ -348,6 +348,36 @@ return [
             'text' => 'Faq',
             'url'  => 'admin/faq',
             'icon' => 'fas fa-question fa-spin',
+        ],
+        [
+            'text' => 'Users',
+            'url'  => 'admin/users',
+            'icon' => 'fas fa-users',
+        ],
+        [
+            'text' => 'Entertainments',
+            'url'  => 'admin/entertainment',
+            'icon' => 'far fa-calendar',
+        ],
+        [
+            'text' => 'Stores',
+            'url'  => 'admin/store',
+            'icon' => 'fas fa-store',
+        ],
+        [
+            'text' => 'Matches',
+            'url'  => 'admin/match',
+            'icon' => 'fas fa-futbol fa-spin',
+        ],
+        [
+            'text' => 'Tournments',
+            'url'  => 'admin/tournment',
+            'icon' => 'fas fa-flag', 
+        ],
+        [
+            'text' => 'Teams',
+            'url'  => 'admin/team',
+            'icon' => 'fas fa-stamp', 
         ],
         // [
             //     'text' => 'change_password',

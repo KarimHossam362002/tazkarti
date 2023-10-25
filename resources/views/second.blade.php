@@ -20,10 +20,10 @@
 
     <nav>
     <div class="menu-bar">
-      <a href="{{ route('home.index') }}"><img src="{{ asset('assets/images/tazkarti.svg') }}" alt></a>
+      <a href="{{ route('home.home') }}"><img src="{{ asset('assets/images/tazkarti.svg') }}" alt></a>
       <ul>
-        <li><a href="{{ route('register.index') }}">Register</a></li>
-        <li><a href="{{ route('login.index') }}">Sign in</a></li>
+        <li><a href="{{ route('register.home') }}">Register</a></li>
+        <li><a href="{{ route('login.home') }}">Sign in</a></li>
         <li><a href="#">Languages <i class="fas fa-caret-down"></i></a>
 
           <div class="dropdown-menu">
@@ -35,9 +35,9 @@
             </ul>
           </div>
         </li>
-        <li><a href="{{ route('about.index') }}">About us</a>
+        <li><a href="{{ route('about.home') }}">About us</a>
         </li>
-        <li><a href="{{ route('contact.index') }}">Contact us</a></li>
+        <li><a href="{{ route('contact.home') }}">Contact us</a></li>
       </ul>
     </div>
   </nav>
@@ -62,11 +62,11 @@
             <li><a href="https://github.com/KarimHossam362002"><i class="fab fa-github"></i></a></li>
         </ul>
         <ul class="menu">
-          <li><a href="{{ route('home.index') }}">Home</a></li>
-          <li><a href="{{ route('stadium.index') }}">Stadium Locations</a></li>
-          <li><a href="{{ route('store.index') }}">Our Stores</a></li>
-          <li><a href="{{ route('faq.index') }}">FAQ</a></li>
-          <li><a href="{{ route('about.index') }}">About Tazkarti</a></li>
+          <li><a href="{{ route('home.home') }}">Home</a></li>
+          <li><a href="{{ route('stadium.home') }}">Stadium Locations</a></li>
+          <li><a href="{{ route('store.home') }}">Our Stores</a></li>
+          <li><a href="{{ route('faq.home') }}">FAQ</a></li>
+          <li><a href="{{ route('about.home') }}">About Tazkarti</a></li>
           <li><a href="{{ route('contact.home') }}">Contact US</a></li>
         </ul>
         <p>&copy;2023 Tazkarti Karim | All Rights Reserved</p>

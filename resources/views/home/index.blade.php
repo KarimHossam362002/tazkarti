@@ -1,50 +1,50 @@
 @extends('layout')
-@section('title' , "Tazkarti | Home")
+@section('title', 'Tazkarti | Home')
 @section('content')
-      <!-- main body -->
-      <main>
+    <!-- main body -->
+    <main>
         <!-- <div class="container"> -->
         <div class="title">
-          <h2>What is your next plan?</h2>
-          <p>Explore and book all exclusive events and matches.</p>
+            <h2>What is your next plan?</h2>
+            <p>Explore and book all exclusive events and matches.</p>
         </div>
 
-        <div class="row row-cols-1 row-cols-md-3 g-4 py-5"
-          style="margin-right: 0;">
+        <div class="row row-cols-1 row-cols-md-3 g-4 py-5" style="margin-right: 0;">
 
-          <div class="col">
 
-            <div class="card-body">
-              <form action="{{ route('match.index') }}">
-                <div class="mb-5 d-flex justify-content-around">
+            <div class="col">
 
-                  <button type="submit" class="btn btn-primary bg-color-1">
-                    <img src="{{ asset('assets/images/stadium.svg') }}" alt>
-                    <h2>Sports</h2>
-                    <p>Match Tickets</p>
-                  </button>
+                <div class="card-body">
+                    <form action="{{ route('match.home') }}">
+                        <div class="mb-5 d-flex justify-content-around">
+
+                            <button type="submit" class="btn btn-primary bg-color-1">
+                                <img src="{{ asset('assets/images/stadium.svg') }}" alt>
+                                <h2>Stadiums</h2>
+                                <p>Match Tickets</p>
+                            </button>
+                        </div>
+                    </form>
                 </div>
-              </form>
+
             </div>
 
-          </div>
-
-          <div class="col">
-            <div class="card-body">
-              <form action="{{ route('event.index') }}">
-                <div class="mb-5 d-flex justify-content-around">
-                  <button type="submit" class="btn btn-primary bg-color-2">
-                    <img src="{{ asset('assets/images/otherEvents.svg') }}" alt>
-                    <h2>Entertainment</h2>
-                    <p>Event Tickets</p>
-                  </button>
+            <div class="col">
+                <div class="card-body">
+                    <form action="{{ route('event.home') }}">
+                        <div class="mb-5 d-flex justify-content-around">
+                            <button type="submit" class="btn btn-primary bg-color-2">
+                                <img src="{{ asset('assets/images/otherEvents.svg') }}" alt>
+                                <h2>Entertainment</h2>
+                                <p>Event Tickets</p>
+                            </button>
+                        </div>
+                    </form>
                 </div>
-              </form>
             </div>
-          </div>
         </div>
 
         <!-- </div> -->
-      </main>
-      <!-- main body -->
+    </main>
+    <!-- main body -->
 @endsection

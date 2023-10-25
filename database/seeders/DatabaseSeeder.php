@@ -4,6 +4,7 @@ namespace Database\Seeders;
 
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 
+use App\Models\Entertainment;
 use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
@@ -31,5 +32,25 @@ class DatabaseSeeder extends Seeder
         $this->call([
             StadiumSeeder::class
         ]);
+        // $this->call([
+        //     UserSeeder::class
+        // ]);
+        $this->call([
+            EntertainmentSeeder::class
+        ]);
+        $this->call([
+            StoreSeeder::class
+        ]);
+        $this->call([
+            TournmentSeeder::class
+        ]);
+        
+        $this->call([
+            MatcheSeeder::class
+        ]);
+        $this->call([
+           TeamSeeder::class
+        ]);
+        
     }
 }

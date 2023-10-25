@@ -20,11 +20,11 @@
     <body>
         <nav>
             <div class="menu-bar">
-                <a href="{{ route('home.index') }}"><img src="{{ asset('assets/images/tazkarti.svg') }}" alt></a>
+                <a href="{{ route('home.home') }}"><img src="{{ asset('assets/images/tazkarti.svg') }}" alt></a>
                 <ul>
                     <li><a href="{{ route('profile.info') }}">My Profile</a></li>
                     <li><a href="{{ route('dashboard.index') }}">Dashboard</a></li>
-                    <li><a href="{{ route('login.index') }}">Sign out</a></li>
+                    <li><a href="{{ route('login.home') }}">Sign out</a></li>
                     <li><a href="#">Languages <i class="fas fa-caret-down"></i></a>
 
                         <div class="dropdown-menu">
@@ -51,10 +51,10 @@
     <p>Tazkarti ID:</p>
     <p>10399892700077</p>
     <ul>
-        <li><a href="{{ route('profile.index') }}">Home</a></li>
-        <li><a href="{{ route('match.index') }}">Matches</a></li>
-        <li><a href="{{ route('event.index') }}">Events</a>
-            <li><a href="{{ route('userTicket.index') }}">My Tickets</a>
+        <li><a href="{{ route('profile.home') }}">Home</a></li>
+        <li><a href="{{ route('match.home') }}">Matches</a></li>
+        <li><a href="{{ route('event.home') }}">Events</a>
+            <li><a href="{{ route('userTicket.home') }}">My Tickets</a>
 
                 </li>
 
@@ -85,11 +85,11 @@
             <li><a href="https://github.com/KarimHossam362002"><i class="fab fa-github"></i></a></li>
         </ul>
         <ul class="menu">
-          <li><a href="{{ route('home.index') }}">Home</a></li>
-          <li><a href="{{ route('stadium.index') }}">Stadium Locations</a></li>
-          <li><a href="{{ route('store.index') }}">Our Stores</a></li>
-          <li><a href="{{ route('faq.index') }}">FAQ</a></li>
-          <li><a href="{{ route('about.index') }}">About Tazkarti</a></li>
+          <li><a href="{{ route('home.home') }}">Home</a></li>
+          <li><a href="{{ route('stadium.home') }}">Stadium Locations</a></li>
+          <li><a href="{{ route('store.home') }}">Our Stores</a></li>
+          <li><a href="{{ route('faq.home') }}">FAQ</a></li>
+          <li><a href="{{ route('about.home') }}">About Tazkarti</a></li>
           <li><a href="{{ route('contact.home') }}">Contact US</a></li>
         </ul>
         <p>&copy;2023 Tazkarti Karim | All Rights Reserved</p>
