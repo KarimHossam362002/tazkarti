@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\TeamRequest;
 use App\Models\Team;
+use App\Models\Tournment;
 use Illuminate\Http\Request;
 
 class TeamController extends Controller
@@ -22,7 +23,8 @@ class TeamController extends Controller
      */
     public function create()
     {
-        return view('admin.team.create');
+        $tournments = Tournment::get();
+        return view('admin.team.create' , compact('tournments'));
     }
 
     /**
@@ -37,6 +39,7 @@ class TeamController extends Controller
         Team::create([
             'team_name' => $request->team_name,
             'team_logo' => $newName,
+            'tournment_id' =>$request->tournment_id,
         ]);
         return back()->with('success','Data created successfully');
     }
@@ -54,7 +57,8 @@ class TeamController extends Controller
      */
     public function edit(Team $team)
     {
-        return view('admin.team.update' , compact('team'));
+        $tournments = Tournment::get();
+        return view('admin.team.update' , compact('team' , 'tournments'));
     }
 
     /**
@@ -76,7 +80,7 @@ class TeamController extends Controller
             
             'team_name' => $request->team_name,            
             'team_logo'=> $newName ?? $request->team_logo,
-            
+            'tournment_id' =>$request->tournment_id,
 
         ]);
         return redirect()->route('team.index')->with('updated' , "Data updated successfully");

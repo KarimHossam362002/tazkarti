@@ -14,7 +14,7 @@
             <th scope="col">Team Name</th>
             {{-- <th scope="col">Sub Title</th> --}}
             <th scope="col">Team Logo</th>
-            {{-- <th scope="col">Tournment Name</th> --}}
+            <th scope="col">Tournment Name</th>
             {{-- <th scope="col">Status</th> --}}
             <th scope="col">Actions..</th>
           </tr>
@@ -33,6 +33,7 @@
                     asset('assets/images/teams/defaultTeam.png') }}"
                     alt="" width="80">
                 </td>
+                <td>{{ $team->tournment?->tournment_name }}</td>
                 {{-- <td>{{ $team->status == 1 ? "Shown":"Hidden" }}</td> --}}
                 <td style="display: flex">
                     <form action="{{ route('team.destroy' , $team->id) }}" method="POST">
