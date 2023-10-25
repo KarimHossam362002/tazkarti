@@ -13,10 +13,12 @@ return new class extends Migration
     {
         Schema::create('matches', function (Blueprint $table) {
             $table->id();
+            $table->unsignedBigInteger('tournment_id');
             $table->string('time_number');
             $table->string('time_period');
-            $table->string('date'); // date Sun 08 Oct 2023
+            $table->string('date');
             $table->boolean('status');
+            $table->foreign('tournment_id')->references('id')->on('tournments')->onDelete('cascade')->onUpdate('cascade');
             $table->timestamps();
         });
     }

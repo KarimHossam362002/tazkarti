@@ -2,6 +2,7 @@
 
 namespace Database\Factories;
 
+use App\Models\Tournment;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
@@ -19,6 +20,7 @@ class TeamFactory extends Factory
         return [
             'team_name' =>fake()->name(),
             'team_logo' =>fake()->imageUrl(),
+            'tournment_id'=>Tournment::inRandomOrder()->first()?->id,
         ];
     }
 }

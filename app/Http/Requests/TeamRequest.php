@@ -24,6 +24,7 @@ class TeamRequest extends FormRequest
         return [
             'team_name' => ['required' , 'string'],
             'team_logo' => ['image','mimes:png,jpg,gif,jpeg'],
+            'tournment_id' => ['required'],
         ];
     }
 }
