@@ -4,11 +4,13 @@ use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\ContactUsController;
 use App\Http\Controllers\EntertainmentController;
 use App\Http\Controllers\FaqController;
+use App\Http\Controllers\Front\TazkaraController;
 use App\Http\Controllers\MatchController;
 use App\Http\Controllers\StadiumController;
 use App\Http\Controllers\StoreController;
 use App\Http\Controllers\TeamController;
 use App\Http\Controllers\TournmentController;
+use App\Http\Controllers\UserController;
 use App\Models\Entertainment;
 use Illuminate\Support\Facades\Route;
 
@@ -45,4 +47,9 @@ Route::resource('admin/match' , MatchController::class)->except('show');
 Route::resource('admin/tournment' , TournmentController::class)->except('show');
 // teams
 Route::resource('admin/team' , TeamController::class)->except('show');
+// users
+Route::get('admin/user' , [UserController::class , 'index'])->name('user.index');
+// tazkaras
+Route::get('admin/tazkara' , [TazkaraController::class , 'index'])->name('tazkara.index');
+
 

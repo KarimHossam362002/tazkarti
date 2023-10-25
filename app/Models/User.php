@@ -4,8 +4,7 @@ namespace App\Models;
 
 // use Illuminate\Contracts\Auth\MustVerifyEmail;
 
-use App\Traits\UUID;
-use App\Traits\Tazkarti_id;
+use App\Traits\UserUUID;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
@@ -16,7 +15,7 @@ use Laravel\Sanctum\HasApiTokens;
 
 class User extends Authenticatable
 {
-    use HasApiTokens, HasFactory, Notifiable , UUID , Tazkarti_id;
+    use HasApiTokens, HasFactory, Notifiable , UserUUID;
 
     /**
      * The attributes that are mass assignable.
@@ -25,7 +24,7 @@ class User extends Authenticatable
      */
     protected $fillable = [
         'id',
-        'tazkarti_id',
+        // 'tazkarti_id',
         'name',
         'email',
         'password',
@@ -43,30 +42,8 @@ class User extends Authenticatable
         'password',
         'remember_token',
     ];
-    // use this only in User model because of double IDs
-    protected static function boot()
-    {
-        parent::boot();
-
-
-        self::bootUUID();
-
-
-        self::bootTazkarti_id();
-
-        // Your other boot logic here
-    }
-
-    // add this when using UUID in any model
-    public function getIncrementing()
-    {
-        return false;
-    }
-    // add this when using UUID in any model
-    public function getKeyType()
-    {
-        return 'string';
-    }
+    
+  
     /**
      * The attributes that should be cast.
      *

@@ -1,9 +1,12 @@
 <?php
 
 namespace App\Http\Controllers;
+
 use Carbon\Carbon;
 use App\Http\Requests\MatchRequest;
 use App\Models\Matche;
+use App\Models\Team;
+use App\Models\Tournment;
 use App\Rules\TimeFormat;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator as FacadesValidator;
@@ -18,8 +21,7 @@ class MatchController extends Controller
         // $model = Matche::find(1);
         // $formattedDate = $model->custom_date;
         $matches = Matche::paginate(5);
-        return view('admin.match.index' , compact('matches'));
-
+        return view('admin.match.index', compact('matches'));
     }
 
     /**
@@ -27,7 +29,9 @@ class MatchController extends Controller
      */
     public function create()
     {
-        return view ('admin.match.create');
+        $tournments = Tournment::get();
+        $teams = Team::all();
+        return view('admin.match.create', compact('tournments', 'teams'));
     }
 
     /**
@@ -35,15 +39,31 @@ class MatchController extends Controller
      */
     public function store(MatchRequest $request)
     {
-       
-        
-        Matche::create([
-            'time_number' => $request->time_number,
-            'time_period' => $request->time_period,
-            'date' => $request->date,
-            'status' => $request->status,
-        ]);
-        return back()->with('success' , 'Data created successfully');
+        // dd($request->all());
+        $match = new Matche();
+        $match->time_number = $request->time_number;
+        $match->time_period = $request->time_period;
+        $match->date = $request->date;
+        $match->tournment_id = $request->tournment_id;
+        $match->status = $request->status;
+        $match->save();
+        $team1 = $request->team_name_1;
+        $team2 = $request->team_name_2;
+        $match->teams()->attach([$team1, $team2]);
+
+        return back()->with('success', 'Data created successfully');
+        // $match = new Matche();
+        // Matche::create([
+        //     'time_number' => $request->time_number,
+        //     'time_period' => $request->time_period,
+        //     'date' => $request->date,
+        //     'tournment_id' =>$request->tournment_id,
+        //     'status' => $request->status,
+        // ]);
+        // $match->team_name = $request->team_name_1;
+        // $match->team_name = $request->team_name_2;
+        // $match->save();
+        // return back()->with('success' , 'Data created successfully');
     }
 
     /**
@@ -59,7 +79,9 @@ class MatchController extends Controller
      */
     public function edit(Matche $match)
     {
-        return view ('admin.match.update' , compact('match'));
+        $tournments = Tournment::get();
+        $teams = Team::all();
+        return view('admin.match.update', compact('match', 'tournments', 'teams'));
     }
 
     /**
@@ -67,13 +89,19 @@ class MatchController extends Controller
      */
     public function update(MatchRequest $request, Matche $match)
     {
-        $match->update([
-            'time_number' =>$request->time_number,
-            'time_period' =>$request->time_period,
-            'date' =>$request->date,
-            'status' =>$request->status,
-        ]);
-        return redirect()->route('match.index')->with('updated' , 'Data updated successfully');
+
+        $match->time_number = $request->time_number;
+        $match->time_period = $request->time_period;
+        $match->date = $request->date;
+        $match->tournment_id = $request->tournment_id;
+        $match->status = $request->status;
+        $match->save();
+        $team1 = $request->team_name_1;
+        $team2 = $request->team_name_2;
+        $match->teams()->sync([$team1, $team2]);
+
+
+        return redirect()->route('match.index')->with('updated', 'Data updated successfully');
     }
 
     /**
@@ -81,7 +109,7 @@ class MatchController extends Controller
      */
     public function destroy(string $id)
     {
-        Matche::where('id',$id)->delete();
-        return back()->with('success','Data deleted successfully');
+        Matche::where('id', $id)->delete();
+        return back()->with('success', 'Data deleted successfully');
     }
 }

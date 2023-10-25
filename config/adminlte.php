@@ -351,7 +351,7 @@ return [
         ],
         [
             'text' => 'Users',
-            'url'  => 'admin/users',
+            'url'  => 'admin/user',
             'icon' => 'fas fa-users',
         ],
         [
@@ -378,6 +378,11 @@ return [
             'text' => 'Teams',
             'url'  => 'admin/team',
             'icon' => 'fas fa-stamp', 
+        ],
+        [
+            'text' => 'Tazkaras',
+            'url'  => 'admin/tazkara',
+            'icon' => 'fas fa-ticket-alt', 
         ],
         // [
             //     'text' => 'change_password',

@@ -9,4 +9,11 @@ class Tournment extends Model
 {
     use HasFactory;
     protected $fillable = ['tournment_name' , 'status'];
+
+    function matches(){
+       return $this->hasMany(Matche::class);
+    }
+    function teams(){
+       return $this->hasMany(Team::class);
+    }
 }

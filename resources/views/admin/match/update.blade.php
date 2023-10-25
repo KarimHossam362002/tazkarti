@@ -38,10 +38,39 @@
            <input type="text"  value="{{ $match->date }}" class="form-control w-50"  name="date">
 
         </div>
-          
-       
-            
-
+          <div>
+        <label for="tournment_name" class="form-label">Tournment Name:</label>
+        <br>
+        <select id="tournment_name" class="custom-select w-50" aria-label="Default select example" name="tournment_id">
+            @foreach ($tournments as $tournment)
+                <option @if (old('tournment_id') == $tournment->id) selected @endif value="{{ $tournment->id }}">{{ $tournment->tournment_name }}
+                </option>
+            @endforeach
+        </select>
+    </div>
+     {{-- Team 1 --}}
+     <div>
+        <label for="team_name_1" class="form-label">Team 1 name:</label>
+        <br>
+        <select id="team_name_1" class="custom-select w-50" aria-label="Default select example" name="team_name_1">
+            @foreach ($teams as $team)
+                    <option value="{{ $team->id }}">{{ $team->team_name }}
+                    </option>
+                @endforeach
+        </select>
+    </div>
+     {{-- Team 2 --}}
+     <div>
+        <label for="team_name_2" class="form-label">Team 2 name:</label>
+        <br>
+        <select id="team_name_2" class="custom-select w-50" aria-label="Default select example" name="team_name_2">
+            @foreach ($teams as $team)
+            <option value="{{ $team->id }}">{{ $team->team_name }}
+            </option>
+        @endforeach
+        </select>
+    </div>
+   
             @error('status')
             <div class="alert alert-danger">
                 {{ $message }}
@@ -58,4 +87,7 @@
 
         <input type="submit" class="btn btn-primary" value="Save" />
     </form>
+@endsection
+@section('js')
+    <script src="{{ asset('assets/js/main.js')  }}"></script>
 @endsection

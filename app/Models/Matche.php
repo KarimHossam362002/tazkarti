@@ -9,11 +9,19 @@ use Illuminate\Database\Eloquent\Model;
 class Matche extends Model
 {
     use HasFactory;
-    protected $fillable = ['date','time_number' ,'time_period', 'status'];
+    protected $fillable = ['date','time_number' ,'time_period', 'status' , 'tournment_id'];
     
     protected $dates = ['date'];
     public function getCustomDateAttribute($value)
     {
         return Carbon::parse($value)->format('D d M Y');
     }
+    function tournment(){
+        return $this->belongsTo(Tournment::class);
+    }
+    public function teams()
+    {
+    return $this->belongsToMany(Team::class, 'match_teams' , 'match_id' , 'team_id');
+    }
+   
 }

@@ -27,7 +27,16 @@
 
         </div>
         
-
+        <div>
+            <label for="tournment_name" class="form-label">Tournment Name:</label>
+            <br>
+            <select id="tournment_name" class="custom-select w-50" aria-label="Default select example" name="tournment_id">
+                @foreach ($tournments as $tournment)
+                    <option value="{{ $tournment->id }}">{{ $tournment->tournment_name }}
+                    </option>
+                @endforeach
+            </select>
+        </div>
        
           
 

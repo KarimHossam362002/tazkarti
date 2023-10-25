@@ -29,6 +29,9 @@ class MatchRequest extends FormRequest
             'time_number' => ['required' , 'string' , new TimeFormat],
             'time_period' => ['required' , 'in:AM,PM'],
             'date' => ['required' , new DateFormat],
+            'tournment_id' => ['required'],
+            'team_name_1' => ['required' , 'integer' , 'exists:teams,id'],
+            'team_name_2' => ['required' , 'integer' , 'exists:teams,id'],
             'status' => ['required' , 'boolean'],
         ];
     }

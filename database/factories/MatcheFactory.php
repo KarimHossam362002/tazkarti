@@ -2,6 +2,8 @@
 
 namespace Database\Factories;
 
+use App\Models\Team;
+use App\Models\Tournment;
 use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
@@ -24,7 +26,9 @@ class MatcheFactory extends Factory
         return [
             'time_number' => fake()->time('H:i', 'now'),
             'time_period' => fake()->time('A', 'now'),
+            
             'date' => $formattedDate,
+            "tournment_id" => Tournment::inRandomOrder()->first()?->id,
             'status' => rand(0,1),
         ];
     }
