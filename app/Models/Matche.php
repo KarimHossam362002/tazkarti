@@ -9,7 +9,7 @@ use Illuminate\Database\Eloquent\Model;
 class Matche extends Model
 {
     use HasFactory;
-    protected $fillable = ['date','time_number' ,'time_period', 'status' , 'tournment_id'];
+    protected $fillable = ['date','time_number' ,'time_period', 'status' , 'tournment_id' , 'stadium_id'];
     
     protected $dates = ['date'];
     public function getCustomDateAttribute($value)
@@ -23,5 +23,10 @@ class Matche extends Model
     {
     return $this->belongsToMany(Team::class, 'match_teams' , 'match_id' , 'team_id');
     }
-   
+    public function stadium(){
+        return $this->belongsTo(Stadium::class);
+    }
+    public function tazkaras(){
+        return $this->hasMany(Tazkara::class);
+       }
 }

@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Carbon\Carbon;
 use App\Http\Requests\MatchRequest;
 use App\Models\Matche;
+use App\Models\Stadium;
 use App\Models\Team;
 use App\Models\Tournment;
 use App\Rules\TimeFormat;
@@ -31,7 +32,8 @@ class MatchController extends Controller
     {
         $tournments = Tournment::get();
         $teams = Team::all();
-        return view('admin.match.create', compact('tournments', 'teams'));
+        $stadiums = Stadium::get();
+        return view('admin.match.create', compact('tournments', 'teams' ,'stadiums'));
     }
 
     /**
@@ -45,6 +47,7 @@ class MatchController extends Controller
         $match->time_period = $request->time_period;
         $match->date = $request->date;
         $match->tournment_id = $request->tournment_id;
+        $match->stadium_id = $request->stadium_id;
         $match->status = $request->status;
         $match->save();
         $team1 = $request->team_name_1;
@@ -52,18 +55,6 @@ class MatchController extends Controller
         $match->teams()->attach([$team1, $team2]);
 
         return back()->with('success', 'Data created successfully');
-        // $match = new Matche();
-        // Matche::create([
-        //     'time_number' => $request->time_number,
-        //     'time_period' => $request->time_period,
-        //     'date' => $request->date,
-        //     'tournment_id' =>$request->tournment_id,
-        //     'status' => $request->status,
-        // ]);
-        // $match->team_name = $request->team_name_1;
-        // $match->team_name = $request->team_name_2;
-        // $match->save();
-        // return back()->with('success' , 'Data created successfully');
     }
 
     /**
@@ -81,7 +72,8 @@ class MatchController extends Controller
     {
         $tournments = Tournment::get();
         $teams = Team::all();
-        return view('admin.match.update', compact('match', 'tournments', 'teams'));
+        $stadiums = Stadium::get();
+        return view('admin.match.update', compact('match', 'tournments', 'teams' ,'stadiums'));
     }
 
     /**
@@ -94,12 +86,13 @@ class MatchController extends Controller
         $match->time_period = $request->time_period;
         $match->date = $request->date;
         $match->tournment_id = $request->tournment_id;
+        $match->stadium_id = $request->stadium_id;
         $match->status = $request->status;
         $match->save();
         $team1 = $request->team_name_1;
         $team2 = $request->team_name_2;
         $match->teams()->sync([$team1, $team2]);
-
+        
 
         return redirect()->route('match.index')->with('updated', 'Data updated successfully');
     }

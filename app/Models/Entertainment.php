@@ -10,5 +10,7 @@ class Entertainment extends Model
     use HasFactory;
     protected $fillable = ['name','title','description','status','location','image'];
 
-   
+   public function tazkaras(){
+    return $this->hasMany(Tazkara::class);
+   }
 }

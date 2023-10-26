@@ -10,5 +10,8 @@ class Stadium extends Model
     use HasFactory;
     protected $fillable = ['name' , 'city' , 'location' , 'status'];
     protected $table = 'stadiums';
+    public function match(){
+        return $this->hasOne(Matche::class);
+    }
 
 }

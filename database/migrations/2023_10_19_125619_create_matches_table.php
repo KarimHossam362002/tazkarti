@@ -14,11 +14,13 @@ return new class extends Migration
         Schema::create('matches', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('tournment_id');
+            $table->unsignedBigInteger('stadium_id');
             $table->string('time_number');
             $table->string('time_period');
             $table->string('date');
             $table->boolean('status');
             $table->foreign('tournment_id')->references('id')->on('tournments')->onDelete('cascade')->onUpdate('cascade');
+            $table->foreign('stadium_id')->references('id')->on('stadiums')->onDelete('cascade')->onUpdate('cascade');
             $table->timestamps();
         });
     }

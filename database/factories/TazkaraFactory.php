@@ -2,6 +2,8 @@
 
 namespace Database\Factories;
 
+use App\Models\Entertainment;
+use App\Models\Matche;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
@@ -18,6 +20,9 @@ class TazkaraFactory extends Factory
     {
         return [
             'tazkara'=>fake()->numberBetween(1,1000),
+            "match_id" => Matche::inRandomOrder()->first()?->id,
+            "entertainment_id" => Entertainment::inRandomOrder()->first()?->id,
+
         ];
     }
 }
