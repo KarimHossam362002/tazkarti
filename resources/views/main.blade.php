@@ -15,16 +15,23 @@
             href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@500&family=Roboto:ital@1&family=Space+Grotesk:wght@500&display=swap"
             rel="stylesheet">
         <link rel="stylesheet" href="{{ asset('assets/css/style.css') }}" />
-        <title>Document</title>
+        <title>@yield('title')</title>
     </head>
     <body>
         <nav>
             <div class="menu-bar">
-                <a href="{{ route('home.home') }}"><img src="{{ asset('assets/images/tazkarti.svg') }}" alt></a>
+                @if ($user)
+                <a href="{{ route('profile.home') }}"><img src="{{ asset('assets/images/tazkarti.svg') }}" alt></a>
+                @endif
                 <ul>
-                    <li><a href="{{ route('profile.info') }}">My Profile</a></li>
+                    
+                    @if ($user->type == 'admin')
+                        
                     <li><a href="{{ route('dashboard.index') }}">Dashboard</a></li>
-                    <li><a href="{{ route('login.home') }}">Sign out</a></li>
+                    @endif
+                    @if ($user)
+                    
+                    <li><a href="{{ route('profile.info' , $user->id) }}">Update Information</a></li>
                     <li><a href="#">Languages <i class="fas fa-caret-down"></i></a>
 
                         <div class="dropdown-menu">
@@ -38,6 +45,14 @@
                             </ul>
                         </div>
                     </li>
+                    <li>
+                        <form method="POST" action="{{ route('logout') }}">
+                            @csrf
+                            <button class="navbar-button" type="submit">Sign out</button>
+                        </form>
+                        
+                    </li>
+                    @endif
 
                 </ul>
             </div>
@@ -46,10 +61,13 @@
     <div class="hero">
  <!-- profile bar -->
  <div class="profile-bar">
-    <img src="{{ asset('assets/images/profileDefault.jpg') }}" alt>
-    <p>Karim Elsayed</p>
-    <p>Tazkarti ID:</p>
-    <p>10399892700077</p>
+    <img src="{{ !empty(Auth::user()->image) ?
+        asset('assets/images/users/' . Auth::user()->image)
+        :
+        asset('assets/images/users/defaultUser.jpg') }}" alt>
+    <p>{{ Auth::user()->name }}</p>
+    <p>Email:</p>
+    <p>{{ Auth::user()->email }}</p>
     <ul>
         <li><a href="{{ route('profile.home') }}">Home</a></li>
         <li><a href="{{ route('match.home') }}">Matches</a></li>
@@ -85,7 +103,7 @@
             <li><a href="https://github.com/KarimHossam362002"><i class="fab fa-github"></i></a></li>
         </ul>
         <ul class="menu">
-          <li><a href="{{ route('home.home') }}">Home</a></li>
+          <li><a href="{{ route('home.guest') }}">Home</a></li>
           <li><a href="{{ route('stadium.home') }}">Stadium Locations</a></li>
           <li><a href="{{ route('store.home') }}">Our Stores</a></li>
           <li><a href="{{ route('faq.home') }}">FAQ</a></li>

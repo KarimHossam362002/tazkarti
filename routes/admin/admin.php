@@ -34,7 +34,7 @@ Route::resource('admin/faq',FaqController::class)->except('show');
 // contact
 Route::get('admin/contact',[ContactUsController::class , 'index'])->name('contact.index');
 Route::post('admin/contact',[ContactUsController::class , 'store'])->name('contact.store');
-Route::delete('admin/contact/{id}',[ContactUsController::class , 'destroy'])->name('contact.destroy');
+Route::delete('admin/contact/{uuid}',[ContactUsController::class , 'destroy'])->name('contact.destroy');
 // stadium
 Route::resource('admin/stadium' , StadiumController::class)->except('show');
 // entertainments
@@ -49,6 +49,9 @@ Route::resource('admin/tournment' , TournmentController::class)->except('show');
 Route::resource('admin/team' , TeamController::class)->except('show');
 // users
 Route::get('admin/user' , [UserController::class , 'index'])->name('user.index');
+Route::get('admin/user/{id}/edit' , [UserController::class , 'edit'])->name('user.edit');
+Route::delete('admin/user/{id}' , [UserController::class , 'destroy'])->name('user.destroy');
+Route::put('admin/user/{id}' , [UserController::class , 'update'])->name('user.update');
 // tazkaras
 Route::get('admin/tazkara' , [TazkaraController::class , 'index'])->name('tazkara.index');
 

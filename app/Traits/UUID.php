@@ -2,23 +2,24 @@
 namespace App\Traits;
 use Illuminate\Support\Str;
 
-trait UUID{
-    protected static function bootUUID()
+trait UUID
+{
+    protected static function boot()
     {
         parent::boot();
-        // Str::uuid();
-        static::creating(function ($user) {
-            $user->{$user->getKeyName()} = (string) Str::uuid();
-            $user->save();
+        static::creating(function ($model) {
+            $model->{$model->getKeyName()} = (string) Str::uuid();
+            $model->save();
         });
     }
-    public function getIncrementing(){
+    public function getIncrementing()
+    {
         return false;
     }
-    public function getKeyType(){
+    public function getKeyType()
+    {
         return 'string';
     }
-
 
 }
 ?>

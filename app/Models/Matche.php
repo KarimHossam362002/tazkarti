@@ -3,12 +3,13 @@
 namespace App\Models;
 
 use Carbon\Carbon;
+use Illuminate\Database\Eloquent\Concerns\HasUuids;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
 class Matche extends Model
 {
-    use HasFactory;
+    use HasFactory , HasUuids;
     protected $fillable = ['date','time_number' ,'time_period', 'status' , 'tournment_id' , 'stadium_id'];
     
     protected $dates = ['date'];

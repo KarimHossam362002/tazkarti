@@ -1,6 +1,7 @@
 <?php
 
 namespace Database\Factories;
+use Illuminate\Support\Str;
 
 use Illuminate\Database\Eloquent\Factories\Factory;
 
@@ -17,6 +18,7 @@ class FaqFactory extends Factory
     public function definition(): array
     {
         return [
+            'id' => Str::uuid(),
            "question" =>fake()->text(),
            "answer" =>fake()->text(),
            "status" =>rand(0,1),

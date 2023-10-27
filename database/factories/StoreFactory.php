@@ -1,6 +1,7 @@
 <?php
 
 namespace Database\Factories;
+use Illuminate\Support\Str;
 
 use App\Models\Entertainment;
 use Illuminate\Database\Eloquent\Factories\Factory;
@@ -18,6 +19,7 @@ class StoreFactory extends Factory
     public function definition(): array
     {
         return [
+            'id' => Str::uuid(),
             'outlet_name' => fake()->name(),
             'city' => fake()->city(),
             'district' => fake()->city(),

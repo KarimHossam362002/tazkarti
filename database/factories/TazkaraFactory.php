@@ -1,6 +1,7 @@
 <?php
 
 namespace Database\Factories;
+use Illuminate\Support\Str;
 
 use App\Models\Entertainment;
 use App\Models\Matche;
@@ -19,6 +20,7 @@ class TazkaraFactory extends Factory
     public function definition(): array
     {
         return [
+            'id' => Str::uuid(),
             'tazkara'=>fake()->numberBetween(1,1000),
             "match_id" => Matche::inRandomOrder()->first()?->id,
             "entertainment_id" => Entertainment::inRandomOrder()->first()?->id,
