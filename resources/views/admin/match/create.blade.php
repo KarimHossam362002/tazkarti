@@ -40,6 +40,8 @@
             <input type="text" class="form-control w-50" name="date">
 
         </div>
+      
+        {{-- Tournment name --}}
         <div>
             <label for="tournment_name" class="form-label">Tournment Name:</label>
             <br>
@@ -50,13 +52,26 @@
                 @endforeach
             </select>
         </div>
+        {{-- stadium name --}}
+        <div>
+            <label for="stadium_name" class="form-label">Stadium Name:</label>
+            <br>
+            <select id="stadium_name" class="custom-select w-50" aria-label="Default select example" name="stadium_id">
+                @foreach ($stadiums as $stadium)
+                    <option value="{{ $stadium->id }}">{{ $stadium->name }}
+                    </option>
+                @endforeach
+            </select>
+        </div>
+        
         {{-- Team 1 --}}
         <div>
             <label for="team_name_1" class="form-label">Team 1 name:</label>
             <br>
             <select id="team_name_1" class="custom-select w-50" aria-label="Default select example" name="team_name_1">
-
+                <option value="#" disabled selected>--Select a team--</option>
                 @foreach ($teams as $team)
+                
                     <option value="{{ $team->id }}">{{ $team->team_name }}
                     </option>
                 @endforeach
@@ -64,18 +79,19 @@
             </select>
         </div>
         {{-- Team2 --}}
+       
         <div>
             <label for="team_name_2" class="form-label">Team 2 name:</label>
             <br>
             <select id="team_name_2" class="custom-select w-50" aria-label="Default select example" name="team_name_2">
-
+                <option value="#" disabled selected>--Select a team--</option>
                 @foreach ($teams as $team)
                     <option value="{{ $team->id }}">{{ $team->team_name }}
                     </option>
                 @endforeach
             </select>
         </div>
-
+      
 
         @error('status')
             <div class="alert alert-danger">

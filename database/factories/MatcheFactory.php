@@ -2,6 +2,7 @@
 
 namespace Database\Factories;
 
+use App\Models\Stadium;
 use App\Models\Team;
 use App\Models\Tournment;
 use Carbon\Carbon;
@@ -29,6 +30,7 @@ class MatcheFactory extends Factory
             
             'date' => $formattedDate,
             "tournment_id" => Tournment::inRandomOrder()->first()?->id,
+            "stadium_id" => Stadium::inRandomOrder()->first()?->id,
             'status' => rand(0,1),
         ];
     }

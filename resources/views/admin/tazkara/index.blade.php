@@ -6,6 +6,8 @@
             <tr>
                 <th scope="col">id</th>
                 <th scope="col">tazkara</th>
+                <th scope="col">Match \ Stadium Name</th>
+                <th scope="col">Entertainment Name</th>
                 {{-- add user details for the tazkara
                     user name
                     event name or match
@@ -18,9 +20,11 @@
                 <tr>
                     <th scope="row">{{ $tazkara->id }}</th>
                     <td>{{ $tazkara->tazkara }}</td>
-
+                    <td>{{ $tazkara->match->stadium->name }}</td>
+                    <td>{{ $tazkara->entertainment?->title }}</td>
                 </tr>
             @endforeach
+           
 
         </tbody>
     </table>
