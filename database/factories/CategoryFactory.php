@@ -1,6 +1,7 @@
 <?php
 
 namespace Database\Factories;
+use Illuminate\Support\Str;
 
 use Illuminate\Database\Eloquent\Factories\Factory;
 
@@ -17,6 +18,7 @@ class CategoryFactory extends Factory
     public function definition(): array
     {
         return [
+            'id' => Str::uuid(),
             'image'=> fake()->imageUrl(),
             'title'=> fake()->title(),
             'sub_title'=>fake()->title(),

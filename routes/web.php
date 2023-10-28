@@ -1,5 +1,6 @@
 <?php
 
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 Require __DIR__. "./front/front.php";
 Require __DIR__. "./admin/admin.php";
@@ -18,3 +19,8 @@ Route::get('/welcome', function () {
     return view('welcome');
 });
 
+
+Auth::routes();
+
+Route::get('/profile', [App\Http\Controllers\HomeController::class, 'index'])->name('profile.home');
+// try to copy the same thing to all routes in HomeController so there will be a middleware for every route

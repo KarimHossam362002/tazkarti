@@ -4,6 +4,7 @@ use App\Http\Controllers\Front\FaqController;
 use App\Http\Controllers\Front\HomeController;
 use App\Http\Controllers\Front\StadiumController;
 use App\Http\Controllers\Front\StoreController;
+use App\Http\Controllers\Front\UpdateProfileController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -16,10 +17,16 @@ use Illuminate\Support\Facades\Route;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
+
+Route::namespace('App\Http\Controllers')->group(function () {
+    Route::get('/', 'MainPageController@index')->name('home.home')->middleware('auth');
+    Route::get('/register' , 'RegisterController@index')->name('register.home')->middleware('auth');
+});
+
 // Home
 Route::get('/' , function(){
     return view('home.index');
-})->name('home.home');
+})->name('home.guest');
 
 //about
 Route::get('/about',function(){
@@ -40,25 +47,29 @@ return view('events.event');
 //faq
 Route::get('/faq' , [FaqController::class, 'index'])->name('faq.home');
 //login
-Route::get('/login',function(){
-return view('login.index');
-})->name('login.home');
+// Route::get('/login',function(){
+// return view('login.index');
+// })->name('login.home');
 //matches
 Route::get('/matches',function(){
 return view('matches.index');
 })->name('match.home');
 //profile
-Route::get('/profile',function(){
-return view('profile.index');
-})->name('profile.home');
+// Route::get('/profile',function(){
+// return view('profile.index');
+// })->name('profile.home');
 //update profile
-Route::get('/updateprofile',function(){
-return view('profile.info');
-})->name('profile.info');
+Route::get('/updateProfile/{uuid}' , [UpdateProfileController::class, 'index'])->name('profile.info');
+Route::put('/updateProfile/{uuid}', [UpdateProfileController::class, 'updateProfile'])->name('profile.update');
+
 //register
-Route::get('/register',function(){
-return view('register.index');
-})->name('register.home');
+// Route::get('/register',function(){
+// return view('register.index');
+// })->name('register.home');
+// logout
+// Route::get('/',function(){
+//     return view('home.index');
+// })->name('logout');
 //stadium
 Route::get('/stadium',[StadiumController::class,'index'])->name('stadium.home');
 //store

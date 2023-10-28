@@ -1,6 +1,7 @@
 <?php
 
 namespace Database\Factories;
+use Illuminate\Support\Str;
 
 use Illuminate\Database\Eloquent\Factories\Factory;
 
@@ -17,6 +18,7 @@ class EntertainmentFactory extends Factory
     public function definition(): array
     {
         return [
+            'id' => Str::uuid(),
             'name' => fake()->title(),
             'title' => fake()->title(),
             'image' => fake()->imageUrl(),

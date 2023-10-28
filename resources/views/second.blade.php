@@ -9,6 +9,11 @@
       rel="stylesheet"
       integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
       crossorigin="anonymous">
+      <meta name="csrf-token" content="{{ csrf_token() }}">
+      {{-- <title>{{ config('app.name', 'Laravel') }}</title> --}}
+      @vite(['resources/sass/app.scss', 'resources/js/app.js'])
+
+
       <link rel="preconnect" href="https://fonts.googleapis.com">
       <link rel="icon" href="{{ asset('assets/images/pageLogo.png') }}">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -20,10 +25,36 @@
 
     <nav>
     <div class="menu-bar">
-      <a href="{{ route('home.home') }}"><img src="{{ asset('assets/images/tazkarti.svg') }}" alt></a>
+      <a href="{{ route('home.guest') }}"><img src="{{ asset('assets/images/tazkarti.svg') }}" alt></a>
       <ul>
-        <li><a href="{{ route('register.home') }}">Register</a></li>
-        <li><a href="{{ route('login.home') }}">Sign in</a></li>
+        @guest
+          @if (Route::has('register'))
+              
+          <li><a href="{{ route('register') }}">{{ __('Register') }}</a></li>
+
+          @endif
+          @if (Route::has('login'))
+          <li><a href="{{ route('login') }}">{{ __('Login') }}</a></li>
+          @endif
+          @else
+          <li class="nav-item dropdown">
+            <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                {{ Auth::user()->name }}
+            </a>
+
+            <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+                <a class="dropdown-item" href="{{ route('logout') }}"
+                   onclick="event.preventDefault();
+                                 document.getElementById('logout-form').submit();">
+                    {{ __('Logout') }}
+                </a>
+
+                <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                    @csrf
+                </form>
+            </div>
+        </li>
+        @endguest
         <li><a href="#">Languages <i class="fas fa-caret-down"></i></a>
 
           <div class="dropdown-menu">
@@ -62,7 +93,7 @@
             <li><a href="https://github.com/KarimHossam362002"><i class="fab fa-github"></i></a></li>
         </ul>
         <ul class="menu">
-          <li><a href="{{ route('home.home') }}">Home</a></li>
+          <li><a href="{{ route('home.guest') }}">Home</a></li>
           <li><a href="{{ route('stadium.home') }}">Stadium Locations</a></li>
           <li><a href="{{ route('store.home') }}">Our Stores</a></li>
           <li><a href="{{ route('faq.home') }}">FAQ</a></li>

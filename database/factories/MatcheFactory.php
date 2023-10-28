@@ -1,6 +1,7 @@
 <?php
 
 namespace Database\Factories;
+use Illuminate\Support\Str;
 
 use App\Models\Stadium;
 use App\Models\Team;
@@ -25,9 +26,9 @@ class MatcheFactory extends Factory
         // Format the date using Carbon to match the "Sun 08 Oct 2023" format
         $formattedDate = Carbon::instance($date)->format('D d M Y');
         return [
+            'id' => Str::uuid(),
             'time_number' => fake()->time('H:i', 'now'),
             'time_period' => fake()->time('A', 'now'),
-            
             'date' => $formattedDate,
             "tournment_id" => Tournment::inRandomOrder()->first()?->id,
             "stadium_id" => Stadium::inRandomOrder()->first()?->id,

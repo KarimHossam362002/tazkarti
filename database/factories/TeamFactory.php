@@ -1,6 +1,7 @@
 <?php
 
 namespace Database\Factories;
+use Illuminate\Support\Str;
 
 use App\Models\Tournment;
 use Illuminate\Database\Eloquent\Factories\Factory;
@@ -18,6 +19,7 @@ class TeamFactory extends Factory
     public function definition(): array
     {
         return [
+            'id' => Str::uuid(),
             'team_name' =>fake()->name(),
             'team_logo' =>fake()->imageUrl(),
             'tournment_id'=>Tournment::inRandomOrder()->first()?->id,

@@ -14,6 +14,7 @@
             <th scope="col">name</th>
             <th scope="col">email</th>
             <th scope="col">Image</th>
+            <th scope="col">Type</th>
             {{-- <th scope="col">Status</th> --}}
             {{-- <th scope="col">Actions..</th> --}}
           </tr>
@@ -32,15 +33,15 @@
                     asset('assets/images/users/defaultUser.jpg') }}"
                     alt="" width="80">
                 </td>
-                {{-- <td>{{ $user->status == 1 ? "Shown":"Hidden" }}</td> --}}
-                {{-- <td style="display: flex">
+                <td>{{ $user->type }}</td>
+                <td style="display: flex">
                     <form action="{{ route('user.destroy' , $user->id) }}" method="POST">
                         @method('DELETE')
                         @csrf
                         <button type="submit" class="btn btn-danger delete-user"><i class="fas fa-trash-alt"></i></button>
                     </form>
-                    <a href="{{ route('user.edit' , $category->id) }}" class="btn btn-warning"><i class="fas fa-edit"></i></a>
-                </td> --}}
+                    <a href="{{ route('user.edit' , $user->id) }}" class="btn btn-warning"><i class="fas fa-edit"></i></a>
+                </td>
               </tr>
             @endforeach
 
@@ -85,7 +86,7 @@
         </div>
 
 
-{{-- 
+
 @section('js')
 <script>
     document.querySelectorAll('.delete-user').forEach(btn => {
@@ -95,6 +96,6 @@
         })
     })
 </script>
-@endsection --}}
+@endsection
 
 @endsection

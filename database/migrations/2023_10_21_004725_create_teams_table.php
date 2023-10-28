@@ -12,8 +12,8 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('teams', function (Blueprint $table) {
-            $table->id();
-            $table->unsignedBigInteger('tournment_id');
+            $table->uuid('id')->primary();
+            $table->string('tournment_id');
             $table->string('team_name');
             $table->string('team_logo');
             $table->foreign('tournment_id')->references('id')->on('tournments')->onDelete('cascade')->onUpdate('cascade');
