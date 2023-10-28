@@ -5,16 +5,27 @@ namespace App\Http\Controllers;
 use App\Http\Requests\EntertainmentRequest;
 use App\Models\Entertainment;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class EntertainmentController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
     public function index()
     {
+        $user = Auth::user();
+        if($user->type == "admin"){
         $entertainments = Entertainment::paginate(5);
         return view('admin.entertainment.index' , compact('entertainments'));
+    }
+    else{
+        return view('404.index');
+    }
     }
 
     /**
@@ -22,7 +33,11 @@ class EntertainmentController extends Controller
      */
     public function create()
     {
+        $user = Auth::user();
+        if($user->type == "admin")
         return view('admin.entertainment.create');
+        else
+        return view('404.index');
     }
 
     /**
@@ -60,7 +75,11 @@ class EntertainmentController extends Controller
      */
     public function edit(Entertainment $entertainment)
     {
+        $user = Auth::user();
+        if($user->type == 'admin')
         return view ('admin.entertainment.update' , compact('entertainment'));
+        else
+        return view('404.index');
     }
 
     /**

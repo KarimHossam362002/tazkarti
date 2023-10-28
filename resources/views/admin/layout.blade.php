@@ -1,3 +1,7 @@
+@if ($user)
+
+  
+
 @extends('adminlte::page')
 @section('content')
 <h2>Home Page</h2>
@@ -18,3 +22,5 @@
       </div>
 </div>
 @endsection
+    
+@endif

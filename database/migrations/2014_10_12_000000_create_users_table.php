@@ -14,6 +14,7 @@ return new class extends Migration
         Schema::create('users', function (Blueprint $table) {
             // $table->id();
             $table->uuid('id')->primary();
+            // $table->unsignedBigInteger('tazkarti_id')->default(10000000000000);
             // $table->unsignedBigInteger('tazkarti_id');
             // $table->primary(['id','tazkarti_id']);
             $table->string('name');

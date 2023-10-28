@@ -5,16 +5,28 @@ namespace App\Http\Controllers;
 use App\Http\Requests\TournmentRequest;
 use App\Models\Tournment;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class TournmentController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
     public function index()
     {
-        $tournments = Tournment::paginate(5);
-        return view ('admin.tournment.index' , compact('tournments'));
+        $user = Auth::user();
+        if($user->type == "admin"){
+
+            $tournments = Tournment::paginate(5);
+            return view ('admin.tournment.index' , compact('tournments'));
+        }
+        else{
+            return view('404.index');
+        }
     }
 
     /**
@@ -22,7 +34,11 @@ class TournmentController extends Controller
      */
     public function create()
     {
+        $user = Auth::user();
+        if($user->type == "admin")
         return view ('admin.tournment.create');
+        else
+        return view('404.index');
     }
 
     /**
@@ -50,8 +66,12 @@ class TournmentController extends Controller
      * Show the form for editing the specified resource.
      */
     public function edit(Tournment $tournment)
-    {
+    {   
+        $user = Auth::user();
+        if($user->type == "admin")
         return view('admin.tournment.update' , compact('tournment'));
+        else
+        return view('404.index');
     }
 
     /**

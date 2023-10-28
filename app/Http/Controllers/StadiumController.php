@@ -5,16 +5,27 @@ namespace App\Http\Controllers;
 use App\Http\Requests\StadiumRequest;
 use App\Models\Stadium;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class StadiumController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
     public function index()
     {
+        $user = Auth::user();
+        if($user->type == 'admin'){
         $stadiums = Stadium::paginate(5);
         return view('admin.stadium.index' , compact('stadiums'));
+    }
+    else{
+        return view('404.index');
+    }
     }
 
     /**
@@ -22,7 +33,11 @@ class StadiumController extends Controller
      */
     public function create()
     {
+        $user = Auth::user();
+        if($user->type == "admin")
         return view('admin.stadium.create');
+        else
+        return view('404.index');
     }
 
     /**
@@ -52,7 +67,11 @@ class StadiumController extends Controller
      */
     public function edit(Stadium $stadium)
     {
+        $user = Auth::user();
+        if($user->type == "admin")
         return view('admin.stadium.update' , compact('stadium'));
+        else
+        return view('404.index');
     }
 
     /**

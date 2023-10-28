@@ -12,6 +12,7 @@ use App\Http\Controllers\TeamController;
 use App\Http\Controllers\TournmentController;
 use App\Http\Controllers\UserController;
 use App\Models\Entertainment;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -24,18 +25,20 @@ use Illuminate\Support\Facades\Route;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
-Route::get('/dashboard', function (){
-    return view ('admin.layout');
-})->name('dashboard.index');
-// category
+Auth::routes();
+// main dashboard done
+Route::get('/dashboard', [App\Http\Controllers\DashboardController::class, 'index'])->name('dashboard.index');
+
+
+// category done
 Route::resource('admin/category',CategoryController::class)->except('show');
-// faq
+// faq 
 Route::resource('admin/faq',FaqController::class)->except('show');
-// contact
+// contact 
 Route::get('admin/contact',[ContactUsController::class , 'index'])->name('contact.index');
 Route::post('admin/contact',[ContactUsController::class , 'store'])->name('contact.store');
 Route::delete('admin/contact/{uuid}',[ContactUsController::class , 'destroy'])->name('contact.destroy');
-// stadium
+// stadium 
 Route::resource('admin/stadium' , StadiumController::class)->except('show');
 // entertainments
 Route::resource('admin/entertainment' , EntertainmentController::class)->except('show');

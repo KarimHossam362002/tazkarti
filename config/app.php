@@ -16,8 +16,7 @@ return [
     |
     */
 
-    'name' => env('APP_NAME', 'Laravel'),
-    'tazkarti' => env('TAZKARTI', 'Tazkarti'),
+    'name' => env('APP_NAME', 'Tazkarti'),
 
     /*
     |--------------------------------------------------------------------------
@@ -57,7 +56,6 @@ return [
     */
 
     'url' => env('APP_URL', 'http://localhost'),
-    'tazkarti_url' => env('TAZKARTI_URL' , 'http://127.0.0.1:8000'),
 
     'asset_url' => env('ASSET_URL'),
 
