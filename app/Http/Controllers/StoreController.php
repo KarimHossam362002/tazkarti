@@ -5,16 +5,28 @@ namespace App\Http\Controllers;
 use App\Http\Requests\StoreRequest;
 use App\Models\Store;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class StoreController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
     public function index()
     {
-        $stores = Store::paginate(5);
-        return view('admin.store.index' , compact('stores'));
+        $user = Auth::user();
+        if($user->type == 'admin'){
+            
+            $stores = Store::paginate(5);
+            return view('admin.store.index' , compact('stores'));
+        }
+        else{
+            return view('404.index');
+        }
     }
 
     /**
@@ -22,7 +34,11 @@ class StoreController extends Controller
      */
     public function create()
     {
+        $user = Auth::user();
+        if($user->type == 'admin')
         return view('admin.store.create');
+        else 
+        return view('404.index');
     }
 
     /**
@@ -56,7 +72,11 @@ class StoreController extends Controller
      */
     public function edit(Store $store)
     {
+        $user = Auth::user();
+        if($user->type == 'admin')
         return view ('admin.store.update' , compact('store'));
+        else
+        return view('404.index');
     }
 
     /**

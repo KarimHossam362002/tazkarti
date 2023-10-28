@@ -21,7 +21,7 @@ class TazkaraFactory extends Factory
     {
         return [
             'id' => Str::uuid(),
-            'tazkara'=>fake()->numberBetween(1,1000),
+            'tazkara'=>fake()->numberBetween(10000000000000,10000000000010),
             "match_id" => Matche::inRandomOrder()->first()?->id,
             "entertainment_id" => Entertainment::inRandomOrder()->first()?->id,
 

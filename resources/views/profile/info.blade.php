@@ -50,9 +50,9 @@
                 {{ $message }}
             </div>
         @enderror
-            <input type="password" placeholder="old_password" name="password">
+            <input type="password" placeholder="Old Password" name="password" autocomplete="off">
             <label for="new_password">new password*</label>
-            <input type="password" placeholder="new_password" name="new_password">
+            <input type="password" placeholder="New Password" name="new_password" autocomplete="off">
             <button type="submit">Update</button>
         </form>
         @endif

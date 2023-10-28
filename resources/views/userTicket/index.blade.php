@@ -1,6 +1,9 @@
 @extends('main')
 @section('title , Tazkarti | Tickets')
 @section('content')
+@auth
+
+    
 <main>
     <div class="container">
         <section>
@@ -29,9 +32,8 @@
                         </thead>
                         <tbody>
                             <tr>
-                                <th scope="row">Karim
-                                    Elsayed</th>
-                                <th>10399892700077</th>
+                                <th scope="row">Karim</th>
+                                <th>{{ 10399892700077 }}</th>
                                 <td>Sports</td>
                                 <td>Match</td>
                                 <td>TournamentEPL | <span>Pyramdis
@@ -84,4 +86,7 @@
     </div>
 
 </main>
+
+
+@endauth
 @endsection

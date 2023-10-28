@@ -6,16 +6,28 @@ use App\Http\Requests\TeamRequest;
 use App\Models\Team;
 use App\Models\Tournment;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class TeamController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
     public function index()
     {
-        $teams = Team::paginate(5);
-        return view('admin.team.index' , compact('teams'));
+        $user = Auth::user();
+        if ($user->type == "admin"){
+
+            $teams = Team::paginate(5);
+            return view('admin.team.index' , compact('teams'));
+        }
+        else{
+            return view('404.index');
+        }
     }
 
     /**
@@ -23,8 +35,15 @@ class TeamController extends Controller
      */
     public function create()
     {
-        $tournments = Tournment::get();
-        return view('admin.team.create' , compact('tournments'));
+        $user = Auth::user();
+        if($user->type == "admin"){
+
+            $tournments = Tournment::get();
+            return view('admin.team.create' , compact('tournments'));
+        }
+        else{
+            return view('404.index');
+        }
     }
 
     /**
@@ -57,8 +76,15 @@ class TeamController extends Controller
      */
     public function edit(Team $team)
     {
-        $tournments = Tournment::get();
-        return view('admin.team.update' , compact('team' , 'tournments'));
+        $user = Auth::user();
+        if($user->type == "admin"){
+
+            $tournments = Tournment::get();
+            return view('admin.team.update' , compact('team' , 'tournments'));
+        }
+        else{
+            return view('404.index');
+        }
     }
 
     /**

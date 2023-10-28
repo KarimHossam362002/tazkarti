@@ -10,6 +10,7 @@ use App\Models\Team;
 use App\Models\Tournment;
 use App\Rules\TimeFormat;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Validator as FacadesValidator;
 
 class MatchController extends Controller
@@ -17,12 +18,22 @@ class MatchController extends Controller
     /**
      * Display a listing of the resource.
      */
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
     public function index()
     {
         // $model = Matche::find(1);
         // $formattedDate = $model->custom_date;
+        $user = Auth::user();
+        if($user->type == "admin"){
         $matches = Matche::paginate(5);
         return view('admin.match.index', compact('matches'));
+    }
+        else{
+            return view('404.index');
+        }
     }
 
     /**
@@ -30,10 +41,16 @@ class MatchController extends Controller
      */
     public function create()
     {
+        $user = Auth::user();
+        if($user->type == "admin"){
         $tournments = Tournment::get();
         $teams = Team::all();
         $stadiums = Stadium::get();
         return view('admin.match.create', compact('tournments', 'teams' ,'stadiums'));
+    }
+    else {
+        return view('404.index');
+    }
     }
 
     /**
@@ -70,10 +87,16 @@ class MatchController extends Controller
      */
     public function edit(Matche $match)
     {
+        $user = Auth::user();
+        if($user->type == "admin"){
         $tournments = Tournment::get();
         $teams = Team::all();
         $stadiums = Stadium::get();
         return view('admin.match.update', compact('match', 'tournments', 'teams' ,'stadiums'));
+    }
+    else{
+        return view('404.index');
+    }
     }
 
     /**

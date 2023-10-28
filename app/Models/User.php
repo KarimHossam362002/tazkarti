@@ -2,8 +2,9 @@
 
 namespace App\Models;
 
-use Illuminate\Contracts\Auth\MustVerifyEmail;
-use App\Traits\UUID;
+// use Illuminate\Contracts\Auth\MustVerifyEmail;
+// use App\Traits\UUID;
+use App\Traits\Tazkarti_ID;
 use Illuminate\Database\Eloquent\Concerns\HasUuids;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
@@ -15,7 +16,8 @@ use Laravel\Sanctum\HasApiTokens;
 
 class User extends Authenticatable
 {
-    use HasApiTokens, HasFactory, Notifiable , HasUuids ;
+    use HasApiTokens, HasFactory, Notifiable , HasUuids; 
+    // Tazkarti_ID
 
     /**
      * The attributes that are mass assignable.
@@ -23,13 +25,16 @@ class User extends Authenticatable
      * @var array<int, string>
      */
     protected $fillable = [
+        
         'name',
         'email',
         'password',
         'image',
         'type',
     ];
-
+    function tazkaras(){
+        return $this->belongsToMany(Tazkara::class , 'tazkara_users' , 'tazkara_id' , 'user_id');
+    }
 
     /**
      * The attributes that should be hidden for serialization.

@@ -54,14 +54,14 @@
 
           <div class="dropdown-menu">
             <ul>
-              <li><a href="#"><img style="padding-right: 10px;"
+              <li><a href="/locale/ar"><img style="padding-right: 10px;"
                     src="{{ asset('assets/images/lang-flag3-egy.svg') }}">العربية</a></li>
-              <li><a href="#"><img style="padding-right: 10px;"
+              <li><a href="/locale/en"><img style="padding-right: 10px;"
                     src="{{ asset('assets/images/lang-flag1-eng.svg') }}">English</a></li>
             </ul>
           </div>
         </li>
-        <li><a href="{{ route('about.home') }}">About us</a>
+        <li><a href="{{ route('about.home') }}">{{ __('messages.About_nav') }}</a>
         </li>
         <li><a href="{{ route('contact.home') }}">Contact us</a></li>
       </ul>

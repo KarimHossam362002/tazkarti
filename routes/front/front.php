@@ -2,8 +2,10 @@
 
 use App\Http\Controllers\Front\FaqController;
 use App\Http\Controllers\Front\HomeController;
-use App\Http\Controllers\Front\StadiumController;
+use App\Http\Controllers\Front\MatchController;
+use App\Http\Controllers\Front\StadiumController as StadiumController;
 use App\Http\Controllers\Front\StoreController;
+use App\Http\Controllers\Front\TazkaraController;
 use App\Http\Controllers\Front\UpdateProfileController;
 use Illuminate\Support\Facades\Route;
 
@@ -18,64 +20,55 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::namespace('App\Http\Controllers')->group(function () {
-    Route::get('/', 'MainPageController@index')->name('home.home')->middleware('auth');
-    Route::get('/register' , 'RegisterController@index')->name('register.home')->middleware('auth');
-});
-
+Route::middleware(['LocalizationMiddleware'])->group(function () {
+  
+    Route::namespace('App\Http\Controllers')->group(function () {
+        Route::get('/{locale}', 'MainPageController@index')->name('home.home')->middleware('auth');
+        Route::get('/stadium/{locale}', 'StadiumController@index')->name('stadium.home')->middleware('auth');
+        Route::get('/register/{locale}' , 'RegisterController@index')->name('register.home')->middleware('auth');
+    });
+    
 // Home
-Route::get('/' , function(){
+Route::get('/{locale}' , function(){
     return view('home.index');
 })->name('home.guest');
 
 //about
-Route::get('/about',function(){
+Route::get('/about/{locale}',function(){
 return view('about.index');
 })->name('about.home');
 //contact
-Route::get('/contact',function(){
+Route::get('/contact/{locale}',function(){
 return view('contact.index');
 })->name('contact.home');
 //event index
-Route::get('/event',function(){
+Route::get('/event/{locale}',function(){
 return view('events.index');
 })->name('event.home');
 //event
-Route::get('/event/details',function(){
+Route::get('/event/details/{locale}',function(){
 return view('events.event');
 })->name('event.event');
 //faq
-Route::get('/faq' , [FaqController::class, 'index'])->name('faq.home');
-//login
-// Route::get('/login',function(){
-// return view('login.index');
-// })->name('login.home');
-//matches
-Route::get('/matches',function(){
-return view('matches.index');
-})->name('match.home');
-//profile
-// Route::get('/profile',function(){
-// return view('profile.index');
-// })->name('profile.home');
-//update profile
-Route::get('/updateProfile/{uuid}' , [UpdateProfileController::class, 'index'])->name('profile.info');
-Route::put('/updateProfile/{uuid}', [UpdateProfileController::class, 'updateProfile'])->name('profile.update');
+Route::get('/faq/{locale}' , [FaqController::class, 'index'])->name('faq.home');
 
-//register
-// Route::get('/register',function(){
-// return view('register.index');
-// })->name('register.home');
-// logout
-// Route::get('/',function(){
-//     return view('home.index');
-// })->name('logout');
-//stadium
-Route::get('/stadium',[StadiumController::class,'index'])->name('stadium.home');
+//matches
+Route::get('/matches/{locale}' , [MatchController::class , 'index'])->name('match.home');
+
+//update profile
+Route::get('/updateProfile/{uuid}/{locale}' , [UpdateProfileController::class, 'index'])->name('profile.info');
+Route::put('/updateProfile/{uuid}/{locale}', [UpdateProfileController::class, 'updateProfile'])->name('profile.update');
+
+
 //store
-Route::get('/store' , [StoreController::class,'index'])->name('store.home');
+Route::get('/store/{locale}' , [StoreController::class,'index'])->name('store.home');
 //userTicket
-Route::get('/userticket',function(){
+Route::get('/userticket/{locale}',function(){
 return view('userTicket.index');
 })->name('userTicket.home');
+
+// user ticket create
+Route::post('userticket/{locale}' , [TazkaraController::class ,'createTazkara'])->name('userTicket.create');
+});
+
 

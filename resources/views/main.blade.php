@@ -28,6 +28,7 @@
                     @if ($user->type == 'admin')
                         
                     <li><a href="{{ route('dashboard.index') }}">Dashboard</a></li>
+                    
                     @endif
                     @if ($user)
                     
@@ -36,10 +37,10 @@
 
                         <div class="dropdown-menu">
                             <ul>
-                                <li><a href="#"><img
+                                <li><a href="locale/ar"><img
                                             style="padding-right: 10px;"
                                             src="{{ asset('assets/images/lang-flag3-egy.svg') }}">العربية</a></li>
-                                <li><a href="#"><img
+                                <li><a href="locale/en"><img
                                             style="padding-right: 10px;"
                                             src="{{ asset('assets/images/lang-flag1-eng.svg') }}">English</a></li>
                             </ul>

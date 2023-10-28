@@ -10,7 +10,7 @@
         <!-- event container -->
 
         <div class="events">
-            <form action="#">
+            <form action="{{ route('userTicket.create') }}">
             <div class="event_content">
                 <img class="event_image"
                     src="{{ asset('assets/images/event.jpeg') }}" alt>

@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\Http\Requests\CategoryRequest;
 use App\Models\Category;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+
 // use Illuminate\Support\Facades\Storage;
 
 class CategoryController extends Controller
@@ -12,11 +14,21 @@ class CategoryController extends Controller
     /**
      * Display a listing of the resource.
      */
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+
     public function index()
     {
+        $user = Auth::user();
+        if($user->type == 'admin'){
         $categories = Category::paginate(5);
         return view('admin.category.index' , compact('categories'));
-
+    }
+    else{
+        return view('404.index');
+    }
     }
 
     /**

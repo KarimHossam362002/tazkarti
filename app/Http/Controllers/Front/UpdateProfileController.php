@@ -14,34 +14,32 @@ class UpdateProfileController extends Controller
         return view('profile.info' , compact('uuid'));
     }
     public function updateProfile(UpdateProfileRequest $request, $uuid)
-{
-    $user = User::find($uuid);
-
-    if ($user) {
-        if ($request->hasFile('image')) {
-            $ext = $request->image->extension();
-            $newName = "Profile" . time() . rand(0, mt_getrandmax()) . '.' . $ext;
-            $request->image->move(public_path('assets/images/users'), $newName);
-            $user->image = $newName;
-        }
-
-        if (Hash::check($request->input('password'), $user->password)) {
-            $user->update([
-                'name' => $request->name,
-                'email' => $request->email,
-            ]);
-
+    {
+        $user = User::find($uuid);
+    
+        if ($user) {
             // Hash the new password before updating it
-            $user->password = Hash::make($request->password);
-
-            $user->save();
-
-            return redirect()->route('profile.home')->with('success', 'Profile updated successfully.');
+            if (Hash::check($request->input('password'), $user->password)) {
+                if ($request->hasFile('image')) {
+                    $ext = $request->image->extension();
+                    $newName = "Profile" . time() . rand(0, mt_getrandmax()) . '.' . $ext;
+                    $request->image->move(public_path('assets/images/users'), $newName);
+                    $user->image = $newName;
+                }
+    
+                $user->password = Hash::make($request->new_password);
+    
+                $user->update([
+                    'name' => $request->name,
+                    'email' => $request->email,
+                ]);
+    
+                return redirect()->route('profile.home')->with('success', 'Profile updated successfully.');
+            } else {
+                return back()->with('error', 'Incorrect old password.');
+            }
         } else {
-            return back()->with('error', 'Incorrect old password.');
+            return back()->with('user_error', 'User not found.');
         }
-    } else {
-        return back()->with('user_error', 'User not found.');
     }
-}
 }
