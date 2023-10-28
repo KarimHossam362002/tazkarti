@@ -28,6 +28,6 @@ class Matche extends Model
         return $this->belongsTo(Stadium::class);
     }
     public function tazkaras(){
-        return $this->hasMany(Tazkara::class);
+        return $this->hasOne(Tazkara::class);
        }
 }

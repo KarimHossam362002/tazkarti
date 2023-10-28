@@ -32,7 +32,9 @@ class User extends Authenticatable
         'image',
         'type',
     ];
-
+    function tazkaras(){
+        return $this->belongsToMany(Tazkara::class , 'tazkara_users' , 'tazkara_id' , 'user_id');
+    }
 
     /**
      * The attributes that should be hidden for serialization.

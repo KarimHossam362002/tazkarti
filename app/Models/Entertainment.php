@@ -12,6 +12,6 @@ class Entertainment extends Model
     protected $fillable = ['name','title','description','status','location','image'];
 
    public function tazkaras(){
-    return $this->hasMany(Tazkara::class);
+    return $this->hasOne(Tazkara::class);
    }
 }

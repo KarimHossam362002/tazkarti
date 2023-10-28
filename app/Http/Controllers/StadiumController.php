@@ -17,15 +17,20 @@ class StadiumController extends Controller
         $this->middleware('auth');
     }
     public function index()
-    {
-        $user = Auth::user();
-        if($user->type == 'admin'){
-        $stadiums = Stadium::paginate(5);
-        return view('admin.stadium.index' , compact('stadiums'));
-    }
-    else{
-        return view('404.index');
-    }
+    {  
+        
+       
+
+            $user = Auth::user();
+            if($user->type == 'admin'){
+            $stadiums = Stadium::paginate(5);
+            return view('admin.stadium.index' , compact('stadiums'));
+        }
+            else{
+                return view('404.index');
+            }
+            
+    
     }
 
     /**

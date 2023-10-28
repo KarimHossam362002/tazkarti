@@ -17,4 +17,7 @@ class Tazkara extends Model
     public function entertainment(){
         return $this->belongsTo(Entertainment::class);
     }
+    function users(){
+        return $this->belongsToMany(User::class , 'tazkara_users' , 'tazkara_id' , 'user_id');
+    }
 }
