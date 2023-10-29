@@ -3,8 +3,8 @@
 use App\Http\Controllers\language\LocalizationController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
-Require __DIR__. "./front/front.php";
-Require __DIR__. "./admin/admin.php";
+// Require __DIR__. "./front/front.php";
+// Require __DIR__. "./admin/admin.php";
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -17,20 +17,20 @@ Require __DIR__. "./admin/admin.php";
 */
 // Localization Route
 
-Route::middleware(['LocalizationMiddleware'])->group(function () {
+Route::middleware(['local'])->group(function () {
     Route::middleware(['auth'])->group(function () {
         // Routes that require the 'auth' middleware
-        Route::get('/dashboard/{locale}', 'DashboardController@index');
-        Route::get('/profile/{locale}', 'ProfileController@index');
+        Route::get('/dashboard', 'DashboardController@index');
+        Route::get('/profile', 'ProfileController@index');
     });
-    Route::get('/welcome/{locale}', function () {
+    Route::get('/welcome', function () {
         return view('welcome');
     });
     
     
     Auth::routes();
     
-    Route::get('/profile/{locale}', [App\Http\Controllers\HomeController::class, 'index'])->name('profile.home');
+    Route::get('/profile', [App\Http\Controllers\HomeController::class, 'index'])->name('profile.home');
 });
 
 

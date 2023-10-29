@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Team extends Model
 {
-    use HasFactory , HasUuids;
+    use HasFactory;
     protected $fillable = ['team_name','team_logo' , 'tournment_id'];
 
     function tournment(){

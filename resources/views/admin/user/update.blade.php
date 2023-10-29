@@ -1,10 +1,10 @@
 @extends('adminlte::page')
 @section('content')
 @dd($user->id)
-    <form action="{{ route('user.update' , $user) }}" method="POST" enctype="multipart/form-data">
+    <form action="{{ route('user.update' , ['id'=>$user->id]) }}" method="POST" enctype="multipart/form-data">
         @method('PUT')
         @csrf
-        <input type="hidden" value="{{ $user->id }}">
+        {{-- <input type="hidden" value="{{ $user->id }}"> --}}
             @error('type')
             <div class="alert alert-danger">
                 {{ $message }}

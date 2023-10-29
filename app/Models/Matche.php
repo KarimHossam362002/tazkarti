@@ -9,7 +9,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Matche extends Model
 {
-    use HasFactory , HasUuids;
+    use HasFactory;
     protected $fillable = ['date','time_number' ,'time_period', 'status' , 'tournment_id' , 'stadium_id'];
     
     protected $dates = ['date'];

@@ -33,10 +33,10 @@ class UserController extends Controller
             return view('404.index');
         }
     }
+    // problem here
     function update(UserRequest $request , User $user){
       
-        $user
-        ->where($user->id , $request->id)
+        $user->where($user->id , $request->id)
         ->update([
             'type' => $request->type,
         ]);

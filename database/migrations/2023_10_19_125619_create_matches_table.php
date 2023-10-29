@@ -12,7 +12,7 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('matches', function (Blueprint $table) {
-            $table->uuid('id')->primary();
+            $table->id();
             $table->string('tournment_id');
             $table->string('stadium_id');
             $table->string('time_number');

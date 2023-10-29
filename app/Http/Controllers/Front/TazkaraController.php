@@ -14,13 +14,20 @@ class TazkaraController extends Controller
     {
         $this->middleware('auth');
     }
-    function createTazkara(Request $request){
+    function show(string $id){
+        
+        $tazkaras =Tazkara::get();
+         return view('userTicket.index' , compact('tazkaras'));
+
+    }
+    // problem here
+    function createTazkara(){
         $user = Auth::user();
      if ($user){
         $tazkara = new Tazkara();
         event(new TicketCreated($tazkara));
         $tazkara->save();
-        return view('userTicket.index' , compact('user'));
-     }   
+     }
+     return back()->with('booked' , 'Ticket booked successfully');   
     }
 }

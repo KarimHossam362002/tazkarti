@@ -29,7 +29,7 @@ class TicketCreated
     $latestTazkara = Tazkara::orderBy('tazkara', 'desc')->first();
     $tazkaraNumber = ($latestTazkara) ? $latestTazkara->tazkara + 1 : 1;
 
-    $event->tazkara->update(['tazkara' => $tazkaraNumber]);
+    $event->tazkara->create(['tazkara' => $tazkaraNumber]);
 }
     /**
      * Get the channels the event should broadcast on.
