@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('tazkaras', function (Blueprint $table) {
             $table->uuid('id')->primary();
             $table->unsignedBigInteger('tazkara');
-            $table->string('match_id');
+            $table->unsignedBigInteger('match_id');
             $table->string('entertainment_id');
             $table->timestamps();
             $table->foreign('match_id')->references('id')->on('matches')->onDelete('cascade')->onUpdate('cascade');

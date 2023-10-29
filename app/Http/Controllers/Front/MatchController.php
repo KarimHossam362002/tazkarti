@@ -12,9 +12,10 @@ class MatchController extends Controller
    
     function index(){
       
-       $test = "test";
+      
+       
         $matches = Matche::where('status', 1)->get();
-       return view('matches.index' , compact('test'));
+       return view('matches.index' , compact('matches'));
      
     
     }

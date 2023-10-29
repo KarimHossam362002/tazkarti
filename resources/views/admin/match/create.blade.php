@@ -64,6 +64,7 @@
             </select>
         </div>
         
+        
         {{-- Team 1 --}}
         <div>
             <label for="team_name_1" class="form-label">Team 1 name:</label>

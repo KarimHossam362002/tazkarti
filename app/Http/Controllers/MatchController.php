@@ -3,13 +3,15 @@
 namespace App\Http\Controllers;
 
 use Carbon\Carbon;
-use App\Http\Requests\MatchRequest;
+use App\Models\Team;
 use App\Models\Matche;
 use App\Models\Stadium;
-use App\Models\Team;
+use App\Models\MatchTeam;
 use App\Models\Tournment;
 use App\Rules\TimeFormat;
+use Illuminate\Support\Str;
 use Illuminate\Http\Request;
+use App\Http\Requests\MatchRequest;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Validator as FacadesValidator;
 
@@ -27,11 +29,10 @@ class MatchController extends Controller
         // $model = Matche::find(1);
         // $formattedDate = $model->custom_date;
         $user = Auth::user();
-        if($user->type == "admin"){
-        $matches = Matche::paginate(5);
-        return view('admin.match.index', compact('matches'));
-    }
-        else{
+        if ($user->type == "admin") {
+            $matches = Matche::paginate(5);
+            return view('admin.match.index', compact('matches'));
+        } else {
             return view('404.index');
         }
     }
@@ -42,15 +43,14 @@ class MatchController extends Controller
     public function create()
     {
         $user = Auth::user();
-        if($user->type == "admin"){
         $tournments = Tournment::get();
         $teams = Team::all();
         $stadiums = Stadium::get();
-        return view('admin.match.create', compact('tournments', 'teams' ,'stadiums'));
-    }
-    else {
-        return view('404.index');
-    }
+        if ($user->type == "admin") {
+            return view('admin.match.create', compact('tournments', 'teams', 'stadiums'));
+        } else {
+            return view('404.index');
+        }
     }
 
     /**
@@ -59,6 +59,7 @@ class MatchController extends Controller
     public function store(MatchRequest $request)
     {
         // dd($request->all());
+
         $match = new Matche();
         $match->time_number = $request->time_number;
         $match->time_period = $request->time_period;
@@ -69,7 +70,18 @@ class MatchController extends Controller
         $match->save();
         $team1 = $request->team_name_1;
         $team2 = $request->team_name_2;
-        $match->teams()->attach([$team1, $team2]);
+        MatchTeam::create([
+            // 'id' => Str::uuid(),
+            'team_id' => $team1,
+            'match_id' => $match->id,
+        ]);
+
+        MatchTeam::create([
+            // 'id' => Str::uuid(),
+            'team_id' => $team2,
+            'match_id' => $match->id,
+        ]);
+
 
         return back()->with('success', 'Data created successfully');
     }
@@ -88,15 +100,14 @@ class MatchController extends Controller
     public function edit(Matche $match)
     {
         $user = Auth::user();
-        if($user->type == "admin"){
         $tournments = Tournment::get();
         $teams = Team::all();
         $stadiums = Stadium::get();
-        return view('admin.match.update', compact('match', 'tournments', 'teams' ,'stadiums'));
-    }
-    else{
-        return view('404.index');
-    }
+        if ($user->type == "admin") {
+            return view('admin.match.update', compact('match', 'tournments', 'teams', 'stadiums'));
+        } else {
+            return view('404.index');
+        }
     }
 
     /**
@@ -112,10 +123,21 @@ class MatchController extends Controller
         $match->stadium_id = $request->stadium_id;
         $match->status = $request->status;
         $match->save();
-        $team1 = $request->team_name_1;
-        $team2 = $request->team_name_2;
-        $match->teams()->sync([$team1, $team2]);
-        
+        // $team1 = $request->team_name_1;
+        // $team2 = $request->team_name_2;
+        // MatchTeam::update([
+        //     // 'id' => Str::uuid(),
+        //     'team_id' => $team1,
+        //     'match_id' => $match->id,
+        // ]);
+
+        // MatchTeam::update([
+        //     // 'id' => Str::uuid(),
+        //     'team_id' => $team2,
+        //     'match_id' => $match->id,
+        // ]);
+        // $match->teams()->sync([$team1, $team2]);
+
 
         return redirect()->route('match.index')->with('updated', 'Data updated successfully');
     }
