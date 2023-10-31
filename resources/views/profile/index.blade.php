@@ -24,7 +24,7 @@
                  <div class="top">
                      <div class="top_first">
                          <p>{{ $event->title }}</p>
-                         <a style="text-decoration: none;"
+                         <a target="_blank" style="text-decoration: none;"
                              href="{{ $event->location }}">
                              <img class="google_icon_image"
                                  src="{{ asset('assets/images/googlemap.png') }}"
@@ -52,12 +52,12 @@
                 <div class="item1">
                     @if($match->teams->count()>0)
                     <span>{{ $match->teams[0]->team_name }}</span>
-                    <img src="{{asset('assets/images/teams/' . $match->teams[0]->team_logo)}}" alt>
+                    <img width="120px" src="{{asset('assets/images/teams/' . $match->teams[0]->team_logo)}}" alt>
                     @endif
                     <span>vs</span>
                     @if ($match->teams->count()>1)
                         
-                    <img src="{{asset('assets/images/teams/' . $match->teams[1]->team_logo)}}" alt>
+                    <img width="120px" src="{{asset('assets/images/teams/' . $match->teams[1]->team_logo)}}" alt>
                     <span>{{ $match->teams[1]->team_name }}</span>
                     @endif
                     {{-- <img src="{{asset('assets/images/team.png')}}" alt>

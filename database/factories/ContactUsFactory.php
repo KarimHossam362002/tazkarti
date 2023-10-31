@@ -18,7 +18,7 @@ class ContactUsFactory extends Factory
     public function definition(): array
     {
         return [
-            'id' => Str::uuid(),
+            
             'subject' => fake()->title(),
             'name' => fake()->name(),
             'email' => fake()->safeEmail(),

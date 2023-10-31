@@ -12,10 +12,10 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('stadiums', function (Blueprint $table) {
-            $table->uuid('id')->primary();
+            $table->id();
             $table->string('name');
             $table->string('city');
-            $table->string('location');
+            $table->text('location');
             $table->boolean('status');
             $table->timestamps();
         });

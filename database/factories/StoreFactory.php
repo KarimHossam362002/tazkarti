@@ -19,7 +19,7 @@ class StoreFactory extends Factory
     public function definition(): array
     {
         return [
-            'id' => Str::uuid(),
+            
             'outlet_name' => fake()->name(),
             'city' => fake()->city(),
             'district' => fake()->city(),

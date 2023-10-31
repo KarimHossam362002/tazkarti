@@ -18,7 +18,7 @@ class EntertainmentFactory extends Factory
     public function definition(): array
     {
         return [
-            'id' => Str::uuid(),
+            
             'name' => fake()->title(),
             'title' => fake()->title(),
             'image' => fake()->imageUrl(),

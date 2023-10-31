@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Stadium extends Model
 {
-    use HasFactory , HasUuids;
+    use HasFactory ;
     protected $fillable = ['name' , 'city' , 'location' , 'status'];
     protected $table = 'stadiums';
     public function match(){

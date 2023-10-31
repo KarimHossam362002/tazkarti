@@ -18,7 +18,7 @@
             <tr>
                 <th scope="row">{{ $stadium->name }}</th>
                 <td>{{ $stadium->city }}</td>
-                <td><a href="{{ $stadium->location }}"><img
+                <td><a target="_blank" href="{{ $stadium->location }}"><img
                             style="height: 40px; width: auto;"
                             src="{{asset('assets/images/map-icon.png')}}" alt></a></td>
 

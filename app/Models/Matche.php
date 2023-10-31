@@ -11,7 +11,7 @@ class Matche extends Model
 {
     use HasFactory;
     protected $fillable = ['date','time_number' ,'time_period', 'status' , 'tournment_id' , 'stadium_id'];
-    
+    protected $table = 'matches';
     protected $dates = ['date'];
     public function getCustomDateAttribute($value)
     {

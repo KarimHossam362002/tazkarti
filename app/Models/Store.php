@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Store extends Model
 {
-    use HasFactory , HasUuids;
+    use HasFactory ;
     protected $fillable = ['outlet_name','city','district','address','status','dedicated_to'];
 
    

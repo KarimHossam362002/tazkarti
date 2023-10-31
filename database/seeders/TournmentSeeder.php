@@ -13,6 +13,6 @@ class TournmentSeeder extends Seeder
      */
     public function run(): void
     {
-        Tournment::factory(10)->create();
+        Tournment::factory(5)->create();
     }
 }

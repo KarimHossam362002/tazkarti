@@ -10,6 +10,7 @@ class Team extends Model
 {
     use HasFactory;
     protected $fillable = ['team_name','team_logo' , 'tournment_id'];
+    protected $table = 'teams';
 
     function tournment(){
         return $this->belongsTo(Tournment::class);

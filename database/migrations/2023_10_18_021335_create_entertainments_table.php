@@ -12,11 +12,11 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('entertainments', function (Blueprint $table) {
-            $table->uuid('id')->primary();
+            $table->id();
             $table->string('name');
             $table->string('title');
-            $table->string('description');
-            $table->string('location');
+            $table->text('description');
+            $table->text('location');
             $table->string('image')->nullable();
             $table->boolean('status');
             $table->timestamps();
