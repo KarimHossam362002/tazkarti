@@ -9,7 +9,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Tazkara extends Model
 {
-    use HasFactory , HasUuids;
+    use HasFactory ;
     protected $fillable = ['tazkara' , 'match_id','entertainment_id'];
     public function match(){
         return $this->belongsTo(Matche::class);

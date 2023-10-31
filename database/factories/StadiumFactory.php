@@ -18,7 +18,7 @@ class StadiumFactory extends Factory
     public function definition(): array
     {
         return [
-            'id' => Str::uuid(),
+            
             'name' => fake()->name(),
             'city' => fake()->city(),
             'location' => fake()->url(),

@@ -1,10 +1,10 @@
 @extends('adminlte::page')
 @section('content')
-@dd($user->id)
-    <form action="{{ route('user.update' , ['id'=>$user->id]) }}" method="POST" enctype="multipart/form-data">
+    
+    <form action="{{ route('user.update' , $user->id) }}" method="POST" enctype="multipart/form-data">
         @method('PUT')
         @csrf
-        {{-- <input type="hidden" value="{{ $user->id }}"> --}}
+        {{-- <input type="hidden" name="id" value="{{ $user->id }}"> --}}
             @error('type')
             <div class="alert alert-danger">
                 {{ $message }}
@@ -14,8 +14,8 @@
             <label for="type" class="form-label">Type:</label>
             <br>
             <select class="custom-select w-50" aria-label="Default select example" name="type" id="type">
-                <option value="user">User</option>
-                <option value="admin">Admin</option>
+                <option value="user">user</option>
+                <option value="admin">admin</option>
             </select>
         </div>
 

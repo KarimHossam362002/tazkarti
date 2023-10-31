@@ -2,10 +2,10 @@
 @section('content')
 {{-- @if (session()->has('success'))
 <div class="alert alert-success">{{ session()->get('success') }}</div>
-@endif
+@endif --}}
 @if (session()->has('updated'))
 <div class="alert alert-success">{{ session()->get('updated') }}</div>
-@endif --}}
+@endif 
 {{-- <a href="{{ route('category.create') }}" class="btn btn-primary">Create record</a> --}}
     <table class="table table-striped">
         <thead>

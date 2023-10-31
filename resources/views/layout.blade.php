@@ -54,9 +54,9 @@
 
           <div class="dropdown-menu">
             <ul>
-              <li><a href="/locale/ar"><img style="padding-right: 10px;"
+              <li><a href="/local/ar"><img style="padding-right: 10px;"
                     src="{{ asset('assets/images/lang-flag3-egy.svg') }}">العربية</a></li>
-              <li><a href="/locale/en"><img style="padding-right: 10px;"
+              <li><a href="/local/en"><img style="padding-right: 10px;"
                     src="{{ asset('assets/images/lang-flag1-eng.svg') }}">English</a></li>
             </ul>
           </div>

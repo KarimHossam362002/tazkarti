@@ -21,7 +21,7 @@ class UserFactory extends Factory
         $roles = ['user ', 'admin'];
         // $nextTazkartiId = User::max('tazkarti_id') + 1 ?? 10000000000000;
         return [
-            'id' => Str::uuid(),
+            
             // 'tazkarti_id' => $nextTazkartiId,
             'name' => fake()->name(),
             'image' => fake()->imageUrl(),

@@ -27,7 +27,7 @@
                 <div class="top">
                     <div class="top_first">
                         <p>{{ $event->title }}</p>
-                        <a style="text-decoration: none;"
+                        <a target="_blank" style="text-decoration: none;"
                             href="{{ $event->location }}">
                             <img class="google_icon_image"
                                 src="{{ asset('assets/images/googlemap.png') }}"

@@ -63,7 +63,7 @@
             </select>
         </div>
         {{-- Team 1 --}}
-        {{-- <div>
+        <div>
             <label for="team_name_1" class="form-label">Team 1 name:</label>
             <br>
             <select id="team_name_1" class="custom-select w-50" aria-label="Default select example" name="team_name_1">
@@ -73,9 +73,9 @@
                     </option>
                 @endforeach
             </select>
-        </div> --}}
+        </div>
         {{-- Team 2 --}}
-        {{-- <div>
+        <div>
             <label for="team_name_2" class="form-label">Team 2 name:</label>
             <br>
             <select id="team_name_2" class="custom-select w-50" aria-label="Default select example" name="team_name_2">
@@ -85,7 +85,7 @@
                     </option>
                 @endforeach
             </select>
-        </div> --}}
+        </div>
         
         @error('status')
             <div class="alert alert-danger">

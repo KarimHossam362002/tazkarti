@@ -20,7 +20,7 @@ class TazkaraFactory extends Factory
     public function definition(): array
     {
         return [
-            'id' => Str::uuid(),
+            
             'tazkara'=>fake()->numberBetween(10000000000000,10000000000010),
             "match_id" => Matche::inRandomOrder()->first()?->id,
             "entertainment_id" => Entertainment::inRandomOrder()->first()?->id,

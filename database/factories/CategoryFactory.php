@@ -18,7 +18,7 @@ class CategoryFactory extends Factory
     public function definition(): array
     {
         return [
-            'id' => Str::uuid(),
+            
             'image'=> fake()->imageUrl(),
             'title'=> fake()->title(),
             'sub_title'=>fake()->title(),

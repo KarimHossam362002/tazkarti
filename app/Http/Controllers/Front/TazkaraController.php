@@ -22,12 +22,14 @@ class TazkaraController extends Controller
     }
     // problem here
     function createTazkara(){
-        $user = Auth::user();
-     if ($user){
+        // $user = Auth::user();
+     if (Auth::check()){
         $tazkara = new Tazkara();
         event(new TicketCreated($tazkara));
         $tazkara->save();
+        return back()->with('booked' , 'Ticket booked successfully');   
      }
-     return back()->with('booked' , 'Ticket booked successfully');   
+     else
+     return view('404.index');
     }
 }

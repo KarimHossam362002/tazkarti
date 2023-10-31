@@ -28,42 +28,7 @@
             </tr>
             @endforeach
            
-            {{-- <tr>
-                <th scope="row">Entertainment</th>
-                <td>Fawry Plus</td>
-                <td>Cairo</td>
-                <td>Heliopolis</td>
-                <td>store 2, ground floor,building 54 othman ibn affan</td>
-
-
-            </tr>
-            <tr>
-                <th scope="row">Entertainment</th>
-                <td>Fawry Plus</td>
-                <td>Cairo</td>
-                <td>Heliopolis</td>
-                <td>store 2, ground floor,building 54 othman ibn affan</td>
-
-
-            </tr>
-            <tr>
-                <th scope="row">Entertainment</th>
-                <td>Fawry Plus</td>
-                <td>Cairo</td>
-                <td>Heliopolis</td>
-                <td>store 2, ground floor,building 54 othman ibn affan</td>
-
-
-            </tr>
-            <tr>
-                <th scope="row">Entertainment</th>
-                <td>Fawry Plus</td>
-                <td>Cairo</td>
-                <td>Heliopolis</td>
-                <td>store 2, ground floor,building 54 othman ibn affan</td>
-
-
-            </tr> --}}
+            
 
 
 

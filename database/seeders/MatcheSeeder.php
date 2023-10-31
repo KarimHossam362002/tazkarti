@@ -13,6 +13,6 @@ class MatcheSeeder extends Seeder
      */
     public function run(): void
     {
-        Matche::factory(10)->create();
+        Matche::factory(5)->create();
     }
 }

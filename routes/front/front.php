@@ -9,6 +9,7 @@ use App\Http\Controllers\Front\StadiumController as StadiumController;
 use App\Http\Controllers\Front\StoreController;
 use App\Http\Controllers\Front\TazkaraController;
 use App\Http\Controllers\Front\UpdateProfileController;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -21,12 +22,12 @@ use Illuminate\Support\Facades\Route;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
+Auth::routes();
 
 Route::middleware(['local'])->group(function () {
   
     Route::namespace('App\Http\Controllers')->group(function () {
         Route::get('', 'MainPageController@index')->name('home.home')->middleware('auth');
-        Route::get('/stadium', 'StadiumController@index')->name('stadium.home')->middleware('auth');
         Route::get('/register' , 'RegisterController@index')->name('register.home')->middleware('auth');
     });
     
@@ -34,7 +35,8 @@ Route::middleware(['local'])->group(function () {
 Route::get('/' , function(){
     return view('home.index');
 })->name('home.guest');
-
+// Stadium
+Route::get('/stadium' , [StadiumController::class , 'index'])->name('stadium.home');
 //about
 Route::get('/about',function(){
 return view('about.index');
@@ -59,8 +61,8 @@ Route::get('/matches' , [MatchController::class , 'index'])->name('match.home');
 
 
 //update profile
-Route::get('/updateProfile/{uuid}' , [UpdateProfileController::class, 'index'])->name('profile.info');
-Route::put('/updateProfile/{uuid}', [UpdateProfileController::class, 'updateProfile'])->name('profile.update');
+Route::get('/updateProfile/{id}' , [UpdateProfileController::class, 'index'])->name('profile.info');
+Route::put('/updateProfile/{id}', [UpdateProfileController::class, 'updateProfile'])->name('profile.update');
 
 
 //store

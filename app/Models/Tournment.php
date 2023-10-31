@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Tournment extends Model
 {
-    use HasFactory , HasUuids;
+    use HasFactory;
     protected $fillable = ['tournment_name' , 'status'];
 
     function matches(){

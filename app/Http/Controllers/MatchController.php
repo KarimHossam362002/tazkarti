@@ -68,19 +68,10 @@ class MatchController extends Controller
         $match->stadium_id = $request->stadium_id;
         $match->status = $request->status;
         $match->save();
-        $team1 = $request->team_name_1;
-        $team2 = $request->team_name_2;
-        MatchTeam::create([
-            // 'id' => Str::uuid(),
-            'team_id' => $team1,
-            'match_id' => $match->id,
-        ]);
-
-        MatchTeam::create([
-            // 'id' => Str::uuid(),
-            'team_id' => $team2,
-            'match_id' => $match->id,
-        ]);
+        // $team1 = $request->team_name_1;
+        // $team2 = $request->team_name_2;
+        // $match->teams()->attach([$team1,$team2]);
+       
 
 
         return back()->with('success', 'Data created successfully');
@@ -123,20 +114,10 @@ class MatchController extends Controller
         $match->stadium_id = $request->stadium_id;
         $match->status = $request->status;
         $match->save();
-        // $team1 = $request->team_name_1;
-        // $team2 = $request->team_name_2;
-        // MatchTeam::update([
-        //     // 'id' => Str::uuid(),
-        //     'team_id' => $team1,
-        //     'match_id' => $match->id,
-        // ]);
-
-        // MatchTeam::update([
-        //     // 'id' => Str::uuid(),
-        //     'team_id' => $team2,
-        //     'match_id' => $match->id,
-        // ]);
-        // $match->teams()->sync([$team1, $team2]);
+        $team1 = $request->input('team_name_1');
+        $team2 = $request->input('team_name_2');
+        $match->teams()->sync([$team1, $team2]);
+        
 
 
         return redirect()->route('match.index')->with('updated', 'Data updated successfully');

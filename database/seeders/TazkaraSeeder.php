@@ -13,6 +13,6 @@ class TazkaraSeeder extends Seeder
      */
     public function run(): void
     {
-        Tazkara::factory(10)->create();
+        Tazkara::factory(5)->create();
     }
 }
