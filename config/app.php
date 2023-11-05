@@ -82,8 +82,13 @@ return [
     | to any of the locales which will be supported by the application.
     |
     */
-
+// if u change in laravellocalization the useheader to false this will work
     'locale' => 'en',
+
+    'languages' => [
+        'ar' => 'العربية',
+        'en' => 'English',
+    ],
 
     /*
     |--------------------------------------------------------------------------
