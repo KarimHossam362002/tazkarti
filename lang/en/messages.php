@@ -1,15 +1,19 @@
 <?php
 return [
+
+     // Home guest page
+     'Stadiums' => 'Stadiums',
+     'Match_Tickets' => 'Match Tickets',
+     'Entertainment' => 'Entertainment',
+     'Event_Tickets' => 'Event Tickets',
+// end
     // unauth home page
     'Register' => 'Register',
     'Login' => 'Login',
     'Languages' => 'Languages',
     'About_nav' => 'About Us',
     'Contact_nav' => 'Contact Us',
-    'Stadiums' => 'Stadiums',
-    'Match_Tickets' => 'Match Tickets',
-    'Entertainment' => 'Entertainment',
-    'Event_Tickets' => 'Event Tickets',
+    
     'Home_header' => 'What is your next plan?',
     "Home_second_header" => "Explore and book all exclusive events and matches.",
     // footer start

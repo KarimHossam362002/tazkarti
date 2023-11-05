@@ -18,12 +18,12 @@
                  <img class="event_image"
                      src="{{ asset('assets/images/entertainments/' . $event->image) }}" alt>
                  <div><span style="font-size: 12px;">{{ __('messages.others') }}</span>
-                     <a class="event_name" href="#">{{$event->name}}</a>
+                     <a class="event_name" href="#">{{$event->title}}</a>
                  </div>
                  <div class="seperate">|</div>
                  <div class="top">
                      <div class="top_first">
-                         <p>{{ $event->title }}</p>
+                         <p>{{ $event->name }}</p>
                          <a target="_blank" style="text-decoration: none;"
                              href="{{ $event->location }}">
                              <img class="google_icon_image"

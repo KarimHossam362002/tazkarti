@@ -1,15 +1,19 @@
 <?php
 return [
+
+    // Home guest page
+    'Stadiums' => 'الملاعب',
+    'Match_Tickets' => 'تذاكر المباريات',
+    'Entertainment' => 'الفعاليات',
+    'Event_Tickets' => 'تذاكر الفعاليات',
+// end
     // unauth home page
     'Register' => 'التسجيل',
     'Login' => 'تسجيل الدخول',
     'Languages' => 'اللغات',
     'About_nav' => 'عنــا',
     'Contact_nav' => 'تواصــل معنـا',
-    'Stadiums' => 'الملاعب',
-    'Match_Tickets' => 'تذاكر المباريات',
-    'Entertainment' => 'الفعاليات',
-    'Event_Tickets' => 'تذاكر الفعاليات',
+    
     'Home_header' => 'ما هو خطتك التالية؟',
     "Home_second_header" => "استكشاف وحجز جميع الفعاليات والمباريات الحصرية",
     // footer start
