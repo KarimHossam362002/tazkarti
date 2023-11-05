@@ -8,7 +8,7 @@
 <main>
 
     <div class="container">
-        <p class="event_title">Events</p>
+        <p class="event_title">{{ __('messages.events') }}</p>
 
         <!-- event container -->
         @foreach ($events as $event )
@@ -40,7 +40,7 @@
                     <p class="event_description">{{$event->description}}</p>
                 </div>
                 <div class="seperate">|</div>
-                <button class="event_button" type="submit">Book Ticket</button>
+                <button class="event_button" type="submit">{{ __("messages.Book") }}</button>
             </div>
             </form>
         </div>

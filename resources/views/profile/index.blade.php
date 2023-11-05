@@ -7,7 +7,7 @@
         @if (session()->has('success'))
         <div class="alert alert-success">{{ session()->get('success') }}</div>
     @endif
-        <p class="event_title">Events</p>
+        <p class="event_title">{{ __('messages.events') }}</p>
          <!-- event container -->
          @foreach ($events as $event )
             
@@ -37,12 +37,12 @@
                      <p class="event_description">{{$event->description}}</p>
                  </div>
                  <div class="seperate">|</div>
-                 <button class="event_button" type="submit">Book Ticket</button>
+                 <button class="event_button" type="submit">{{ __('messages.Book') }}</button>
              </div>
              </form>
          </div>
          @endforeach
-        <p class="event_title">Matches</p>
+        <p class="event_title">{{ __('messages.Match') }}</p>
 
         <!-- match container -->
         @foreach ($matches as $match )
@@ -77,7 +77,7 @@
                 <div class="item4">{{  $match->tournment->tournment_name }}</div>
                 {{-- @dd($match) --}}
                 <div class="item5">
-                    <button type="submit">Book Ticket</button>
+                    <button type="submit">{{ __('messages.Book') }}</button>
                 </div>
             </div>
         </form>

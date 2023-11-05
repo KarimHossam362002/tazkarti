@@ -43,9 +43,9 @@ class MatchController extends Controller
     public function create()
     {
         $user = Auth::user();
-        $tournments = Tournment::get();
+        $tournments = Tournment::where('status' , 1)->get();
         $teams = Team::all();
-        $stadiums = Stadium::get();
+        $stadiums = Stadium::where('status' , 1)->get();
         if ($user->type == "admin") {
             return view('admin.match.create', compact('tournments', 'teams', 'stadiums'));
         } else {

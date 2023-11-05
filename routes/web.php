@@ -3,6 +3,8 @@
 use App\Http\Controllers\language\LocalizationController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
+use Mcamara\LaravelLocalization\Facades\LaravelLocalization;
+
 // Require __DIR__. "./front/front.php";
 // Require __DIR__. "./admin/admin.php";
 /*
@@ -17,7 +19,10 @@ use Illuminate\Support\Facades\Route;
 */
 // Localization Route
 
-Route::middleware(['local'])->group(function () {
+
+
+   
+    
     Route::middleware(['auth'])->group(function () {
         // Routes that require the 'auth' middleware
         Route::get('/dashboard', 'DashboardController@index');
@@ -31,7 +36,9 @@ Route::middleware(['local'])->group(function () {
     Auth::routes();
     
     Route::get('/profile', [App\Http\Controllers\HomeController::class, 'index'])->name('profile.home');
-});
 
+
+
+  
 
 

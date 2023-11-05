@@ -30,11 +30,11 @@
         @guest
           @if (Route::has('register'))
               
-          <li><a href="{{ route('register') }}">{{ __('Register') }}</a></li>
+          <li><a href="{{ route('register') }}">{{ __('messages.Register') }}</a></li>
 
           @endif
           @if (Route::has('login'))
-          <li><a href="{{ route('login') }}">{{ __('Login') }}</a></li>
+          <li><a href="{{ route('login') }}">{{ __('messages.Login') }}</a></li>
           @endif
           @else
           <li class="nav-item dropdown">
@@ -46,7 +46,7 @@
                 <a class="dropdown-item" href="{{ route('logout') }}"
                    onclick="event.preventDefault();
                                  document.getElementById('logout-form').submit();">
-                    {{ __('Logout') }}
+                    {{ __('messages.Logout') }}
                 </a>
 
                 <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
@@ -55,20 +55,23 @@
             </div>
         </li>
         @endguest
-        <li><a href="#">Languages <i class="fas fa-caret-down"></i></a>
+        <li><a href="#">{{ __('messages.Languages') }} <i class="fas fa-caret-down"></i></a>
 
           <div class="dropdown-menu">
             <ul>
-              <li><a href="local/ar"><img style="padding-right: 10px;"
-                    src="{{ asset('assets/images/lang-flag3-egy.svg') }}">العربية</a></li>
-              <li><a href="local/en"><img style="padding-right: 10px;"
-                    src="{{ asset('assets/images/lang-flag1-eng.svg') }}">English</a></li>
+              @foreach(LaravelLocalization::getSupportedLocales() as $localeCode => $properties)
+                  <li>
+                      <a rel="alternate" hreflang="{{ $localeCode }}" href="{{ LaravelLocalization::getLocalizedURL($localeCode, null, [], true) }}">
+                          {{ $properties['native'] }}
+                      </a>
+                  </li>
+              @endforeach
             </ul>
           </div>
         </li>
-        <li><a href="{{ route('about.home') }}">About us</a>
+        <li><a href="{{ route('about.home') }}">{{ __('messages.About_nav') }}</a>
         </li>
-        <li><a href="{{ route('contact.home') }}">Contact us</a></li>
+        <li><a href="{{ route('contact.home') }}">{{ __('messages.Contact_nav') }}</a></li>
       </ul>
     </div>
   </nav>
@@ -93,14 +96,14 @@
             <li><a href="https://github.com/KarimHossam362002"><i class="fab fa-github"></i></a></li>
         </ul>
         <ul class="menu">
-          <li><a href="{{ route('home.guest') }}">Home</a></li>
-          <li><a href="{{ route('stadium.home') }}">Stadium Locations</a></li>
-          <li><a href="{{ route('store.home') }}">Our Stores</a></li>
-          <li><a href="{{ route('faq.home') }}">FAQ</a></li>
-          <li><a href="{{ route('about.home') }}">About Tazkarti</a></li>
-          <li><a href="{{ route('contact.home') }}">Contact US</a></li>
+          <li><a href="{{ route('home.guest') }}">{{ __('messages.Home_footer') }}</a></li>
+          <li><a href="{{ route('stadium.home') }}">{{ __('messages.Stadium_footer') }}</a></li>
+          <li><a href="{{ route('store.home') }}">{{ __('messages.Store_footer') }}</a></li>
+          <li><a href="{{ route('faq.home') }}">{{ __('messages.Faq_footer') }}</a></li>
+          <li><a href="{{ route('about.home') }}">{{ __('messages.About_footer') }}</a></li>
+          <li><a href="{{ route('contact.home') }}">{{ __('messages.Contact_footer') }}</a></li>
         </ul>
-        <p>&copy;2023 Tazkarti Karim | All Rights Reserved</p>
+        <p>{{ __('messages.copyright') }}</p>
       </footer>
       <!-- footer -->
 

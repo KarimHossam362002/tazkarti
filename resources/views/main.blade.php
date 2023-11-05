@@ -27,29 +27,30 @@
                     
                     @if ($user->type == 'admin')
                         
-                    <li><a href="{{ route('dashboard.index') }}">Dashboard</a></li>
+                    <li><a href="{{ route('dashboard.index') }}">{{ __('messages.Dashboard') }}</a></li>
                     
                     @endif
                     @if ($user)
                     
-                    <li><a href="{{ route('profile.info' , $user->id) }}">Update Information</a></li>
-                    <li><a href="#">Languages <i class="fas fa-caret-down"></i></a>
+                    <li><a href="{{ route('profile.info' , $user->id) }}">{{ __('messages.update_info') }}</a></li>
+                    <li><a href="#">{{ __('messages.Languages') }} <i class="fas fa-caret-down"></i></a>
 
                         <div class="dropdown-menu">
                             <ul>
-                                <li><a href="local/ar"><img
-                                            style="padding-right: 10px;"
-                                            src="{{ asset('assets/images/lang-flag3-egy.svg') }}">العربية</a></li>
-                                <li><a href="local/en"><img
-                                            style="padding-right: 10px;"
-                                            src="{{ asset('assets/images/lang-flag1-eng.svg') }}">English</a></li>
+                                @foreach(LaravelLocalization::getSupportedLocales() as $localeCode => $properties)
+                                <li>
+                                    <a rel="alternate" hreflang="{{ $localeCode }}" href="{{ LaravelLocalization::getLocalizedURL($localeCode, null, [], true) }}">
+                                        {{ $properties['native'] }}
+                                    </a>
+                                </li>
+                            @endforeach
                             </ul>
                         </div>
                     </li>
                     <li>
                         <form method="POST" action="{{ route('logout') }}">
                             @csrf
-                            <button class="navbar-button" type="submit">Sign out</button>
+                            <button class="navbar-button" type="submit">{{ __('messages.sign_out') }}</button>
                         </form>
                         
                     </li>
@@ -67,24 +68,19 @@
         :
         asset('assets/images/users/defaultUser.jpg') }}" alt>
     <p>{{ Auth::user()->name }}</p>
-    <p>Email:</p>
+    <p>{{ __('messages.email_name') }}</p>
     <p>{{ Auth::user()->email }}</p>
     <ul>
-        <li><a href="{{ route('profile.home') }}">Home</a></li>
-        <li><a href="{{ route('match.home') }}">Matches</a></li>
-        <li><a href="{{ route('event.home') }}">Events</a>
-            <li><a href="{{ route('userTicket.home') }}">My Tickets</a>
+        <li><a href="{{ route('profile.home') }}">{{ __('messages.home') }}</a></li>
+        <li><a href="{{ route('match.home') }}">{{ __('messages.matches') }}</a></li>
+        <li><a href="{{ route('event.home') }}">{{ __('messages.events') }}</a>
+            <li><a href="{{ route('userTicket.home') }}">{{ __('messages.my_tickets') }}</a>
 
                 </li>
 
             </ul>
         </div>
-        <marquee behavior="sliding" hspace="50px" vspace="30px">Tazkarti
-            ID is your pass to stadiums. It is an
-            effective method to achieve the safety of fans Allowing
-            identifying them in the stadium. Tazkarti is also a
-            ticketing provider and event organizer that plans and
-            hosts its own events all around Egypt.</marquee>
+        <marquee behavior="sliding" hspace="50px" vspace="30px">{{__('messages.marquee')}}</marquee>
         <!-- profile bar -->
       &nbsp;
 
@@ -104,14 +100,18 @@
             <li><a href="https://github.com/KarimHossam362002"><i class="fab fa-github"></i></a></li>
         </ul>
         <ul class="menu">
-          <li><a href="{{ route('home.guest') }}">Home</a></li>
-          <li><a href="{{ route('stadium.home') }}">Stadium Locations</a></li>
-          <li><a href="{{ route('store.home') }}">Our Stores</a></li>
-          <li><a href="{{ route('faq.home') }}">FAQ</a></li>
-          <li><a href="{{ route('about.home') }}">About Tazkarti</a></li>
-          <li><a href="{{ route('contact.home') }}">Contact US</a></li>
+            @if ($user)
+          <li><a href="{{ route('profile.home') }}">{{ __('messages.Home_footer') }}</a></li>
+          @else
+          <li><a href="{{ route('home.guest') }}">{{ __('messages.Home_footer') }}</a></li>
+          @endif
+          <li><a href="{{ route('stadium.home') }}">{{ __('messages.Stadium_footer') }}</a></li>
+          <li><a href="{{ route('store.home') }}">{{ __('messages.Store_footer') }}</a></li>
+          <li><a href="{{ route('faq.home') }}">{{ __('messages.Faq_footer') }}</a></li>
+          <li><a href="{{ route('about.home') }}">{{ __('messages.About_footer') }}</a></li>
+          <li><a href="{{ route('contact.home') }}">{{ __('messages.Contact_footer') }}</a></li>
         </ul>
-        <p>&copy;2023 Tazkarti Karim | All Rights Reserved</p>
+        <p>{{ __('messages.copyright') }}</p>
       </footer>
       <!-- footer -->
 

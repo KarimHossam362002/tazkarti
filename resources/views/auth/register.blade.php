@@ -5,10 +5,10 @@
 
         <div class="container">
             <div class="contact_container">
-                <h1>Register</h1>
+                <h1>{{ __('messages.Register') }}</h1>
                 <form method="POST" action="{{ route('register') }}">
                     @csrf
-                    <label for="name">{{ __('Name') }}*</label>
+                    <label for="name">{{ __('messages.name') }}*</label>
                     <input id="name" type="text"@error('name') is-invalid @enderror name="name"
                         value="{{ old('name') }}" required autocomplete="name" autofocus>
                     @error('name')
@@ -16,7 +16,7 @@
                             <strong>{{ $message }}</strong>
                         </span>
                     @enderror
-                    <label for="email">{{ __('Email Address') }}*</label>
+                    <label for="email">{{ __('messages.email_address') }}*</label>
                     <input id="email" type="email" @error('email') is-invalid @enderror name="email"
                         value="{{ old('email') }}" required autocomplete="email">
                     @error('email')
@@ -25,7 +25,7 @@
                         </span>
                     @enderror
 
-                    <label for="password">{{ __('Password') }}*</label>
+                    <label for="password">{{ __('messages.password') }}*</label>
                     <input id="password" type="password" @error('password') is-invalid @enderror name="password" required
                         autocomplete="new-password">
                     @error('password')
@@ -33,10 +33,10 @@
                             <strong>{{ $message }}</strong>
                         </span>
                     @enderror
-                    <label for="confirm_password">{{ __('Confirm Password') }}*</label>
+                    <label for="confirm_password">{{ __('messages.confirm_password') }}*</label>
                     <input id="password-confirm" type="password" name="password_confirmation" required
                         autocomplete="new-password">
-                    <button type="submit"> {{ __('Register') }}</button>
+                    <button type="submit"> {{ __('messages.Register') }}</button>
                 </form>
             </div>
         </div>

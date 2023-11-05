@@ -5,10 +5,10 @@
 
         <div class="container">
             <div class="contact_container">
-                <h1>Sign in</h1>
+                <h1>{{ __('messages.login') }}</h1>
                 <form method="POST" action="{{ route('login') }}">
                     @csrf
-                    <label for="email">{{ __('Email Address') }}*</label>
+                    <label for="email">{{ __('messages.email_address') }}*</label>
                     <input id="email" type="email" @error('email') is-invalid @enderror name="email"
                         value="{{ old('email') }}" required autocomplete="email" autofocus>
                     @error('email')
@@ -17,7 +17,7 @@
                         </span>
                     @enderror
 
-                    <label for="password">{{ __('Password') }}*</label>
+                    <label for="password">{{ __('messages.password') }}*</label>
                     <input id="password" type="password" @error('password') is-invalid @enderror name="password" required
                         autocomplete="current-password">
                     @error('password')
@@ -37,10 +37,10 @@
                             </div>
                         </div>
                     </div> --}}
-                    <button type="submit">{{ __('Login') }}</button>
+                    <button type="submit">{{ __('messages.login') }}</button>
                     @if (Route::has('password.request'))
                         <a class="btn btn-link" href="{{ route('password.request') }}">
-                            {{ __('Forgot Your Password?') }}
+                            {{ __('messages.forget_password') }}
                         </a>
                     @endif
                 </form>

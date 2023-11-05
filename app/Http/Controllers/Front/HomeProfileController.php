@@ -10,6 +10,10 @@ use Illuminate\Support\Facades\Auth;
 
 class HomeProfileController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
     function index(){
         $user = Auth::user();
         $matches = Matche::where('status' , 1)->get();
