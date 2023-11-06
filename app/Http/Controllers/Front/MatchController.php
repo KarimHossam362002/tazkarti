@@ -9,7 +9,10 @@ use Illuminate\Support\Facades\Auth;
 
 class MatchController extends Controller
 {
-   
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
     function index(){
       
       
