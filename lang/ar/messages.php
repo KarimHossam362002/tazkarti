@@ -94,4 +94,17 @@ return [
     "Dashboard" => "لوحة التحكم",
     "marquee" => "تذكرتي
     رقم الهوية هو تذكرتك لدخول الملاعب. إنها طريقة فعالة لضمان سلامة الجماهير والتعرف عليهم في الملعب. تذكرتي هي أيضًا مزود تذاكر ومنظم فعاليات يخطط ويستضيف أحداثه الخاصة في جميع أنحاء مصر.",
+    // start email confirmation message
+    "remember_password" => "تذكر كلمة السر",
+    "reset_password" => "اعادة كلمة السر",
+    "Please confirm your password before continuing" => "تأكيد كلمة السر قبل الاستكمال",
+    "Verify Your Email Address" => "تحقق من عنوان بريدك الإلكتروني",
+    "A fresh verification link has been sent to your email address." => "تم إرسال رابط التحقق الجديد إلى عنوان بريدك الإلكتروني.",
+    "Before proceeding, please check your email for a verification link." => "قبل المتابعة، يرجى التحقق من بريدك الإلكتروني للعثور على رابط التحقق.",
+    "If you did not receive the email" => "إذا لم تستلم البريد الإلكتروني،",
+    "click here to request another" => "انقر هنا لطلب إرسال آخر.",
+    "Send Password Reset Link" => "إرسال رابط إعادة تعيين كلمة المرور",
+
+
+// end
 ];
